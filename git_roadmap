@@ -1,0 +1,89 @@
+How to contribute:
+
+First clone a repository. For instance :
+$git clone https://github.com/drazioti/python_scripts.git
+
+Then in the directory that you clone the repository 
+there is a (hidden) directory .git
+
+-- History of Revision Control Systems --
+The first control system was the Source Code Control System (SCCS)
+was developed by M. J. Rochhind in 1970, for unix machines.
+The idea that was used is to lock a file while editig and then 
+checkout to unlock for testing. 
+In 1980, the Revision Control System (RVS) introduced and in 1986
+the Concurent Version System (CVS) was implemented. CVS provide a new method
+to unlock files. Finally, the SubVersion System (SVN) was 
+introduced (Bitkeeper, Mercurial).
+
+The first commmit in git was of Linus Torvalds in April 2005.
+
+
+--Basic Definitions--
+Repository : a database that contain information to manage the history
+ of a project. There two structures of a git repository. 
+1. Index : which is a binary file and
+2. obejct store :  which is a directory. The object store  contains 
+four objects : Blobs, trees, commits, tags.
+
+Blobs : each version of a file is represented as a blob. Blobs are only
+referenced by the trees and references nothing. I.e blobs are at the bottom
+of the data stracture in a git repo. 
+Trees : contain some metadata as blob identifier,
+pathnames etc. In this way an hierarchy of files and subdirectories is built.
+Trees, point to other trees or to blobs.
+Commits : ia an object that holds metadata for each change into a repository. 
+It holds the author name, commit date, log message and others.
+Tag : this is the hash of an object, usually a commit. Tags point to
+commit(s).
+
+Index : is a binary file that describes the structure of the repository.
+
+-- Git commands --
+$git help or $git help --all|less
+$git --version
+$git help "command" for instance $git help add
+
+If you want all the commits (not only for the specific directory) to use 
+a specific name and email then you have to use the following command:
+$git config --global user.name "John"
+$git config --global user.mail "a@a.com"
+To list the settings of all variables give:
+$git congig -l
+
+Since the configuration fields are text files,
+If you want to delete or edit something, give
+$sudo nano ~/.gitconfig
+or:
+$git config --local user.name "John"
+$git config --local user.email "a@a.com"
+
+Say you want to commit a file foo.txt
+then do:
+$git add .
+$git commit -m "something"
+$git push
+
+and the file is transfered to the remote repo.
+
+The command $git add ., updates the object store and indexed by the sha1. 
+The files are now stagged. Since you have to apply "git add ." the sha1's will be 
+computed again. Giving now $git diff --cached, you will see the differences 
+of the files you change relatively to the previous version.
+When you apply $git commit, then the file becomes
+part of the working directory and your are now ahead from the remote repo.
+To update the remote repo $git push
+If you don't give $git push and instead give $chekout filename
+then all the changes are lost.
+
+If you want to create & checkout to a new branche then
+$git checkout -b foo
+and to push it in the remote repo
+$git  push origin foo
+
+Now you have to branches : master and foo
+
+Say that you made a change on a specific file while you are
+in branch foo. If you want to add the changes of the file to the
+master branch you $checkout master and $git merge foo
+
