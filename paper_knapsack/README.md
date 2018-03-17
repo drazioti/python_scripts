@@ -7,9 +7,9 @@ There are three files here :
 
 [3] comparison_for_small_solutions(sage).py  (written in sagemath ver 6.9)
 
-[4] cvp_attack_1 (written in sagemath ver 6.9)
+[4] cvp_attack_1_sage.py (written in sagemath ver 6.9)
 
-[5] cvp_attack_2 (written in sagemath ver 6.9)
+[5] cvp_attack_2_sage.py (written in sagemath ver 6.9)
 
 The first one contains the basic experiments of two variants of Schnorr-Shevchenko method.
 The second is an heuristic algorithm using branch and bound to solve compact knapsack problem.
