@@ -1,8 +1,8 @@
 """
  "nth roots of large integers"
 
- We use gmpy2 library to compute the reak nth root of a large integer, and we check
- if is integers. In this case we return the nth root
+ We use gmpy2 library to compute the real nth root of a large integer, and we check
+ if is integer. In this case we return the nth root
 
  AUTHOR:
  K. Draziotis (26-3-2018): initial version
