@@ -97,10 +97,12 @@ $git fetch upstream
 $git merge upstream/master
 $git merge
 $git checkout master
-Create a new local branch say mybranch
+
+=== Develpomnet in a branch ===
+Create a new local branch say mybranch to your fork
 $git checkout -b mybranch
 add a new file etc....
-Push the branch
+Push the branch to your (remote) fork
 $git add .
 $git commit -m "sthm"
 $git push --set-upstream origin mybranch
