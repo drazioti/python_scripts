@@ -97,4 +97,14 @@ $git fetch upstream
 $git merge upstream/master
 $git merge
 $git checkout master
-
+Create a new local branch say mybranch
+$git checkout -b mybranch
+add a new file etc....
+Push the branch
+$git add .
+$git commit -m "sthm"
+$git push --set-upstream origin mybranch
+$git checkout master
+$git add .
+$git commit -m "."
+$git push
