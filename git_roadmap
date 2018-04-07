@@ -87,3 +87,14 @@ Say that you made a change on a specific file while you are
 in branch foo. If you want to add the changes of the file to the
 master branch you $checkout master and $git merge foo
 
+=== Syncing a fork ===
+First configure a remote for your fork.
+$git remote add upstream https://github.com/ORIGINAL_OWNER
+$git remote -v
+Then sync your fork with the upstream
+$git checkout master
+$git fetch upstream
+$git merge upstream/master
+$git merge
+$git checkout master
+
