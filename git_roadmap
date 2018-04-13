@@ -58,50 +58,64 @@ or:
 $git config --local user.name "John"
 $git config --local user.email "a@a.com"
 
-Say you want to commit a file foo.txt
-then do:
+Say you want to commit a file foo.txt then do:
+
 $git add .
 $git commit -m "something"
 $git push
 
-and the file is transfered to the remote repo.
+and the file will be transfered to the remote repo.
 
-The command $git add ., updates the object store and indexed by the sha1. 
+The command $git add .
+updates the object store and indexed by sha1. 
 The files are now stagged. Since you have to apply "git add ." the sha1's will be 
-computed again. Giving now $git diff --cached, you will see the differences 
-of the files you change relatively to the previous version.
-When you apply $git commit, then the file becomes
-part of the working directory and your are now ahead from the remote repo.
-To update the remote repo $git push
-If you don't give $git push and instead give $chekout filename
-then all the changes are lost.
+computed again. Giving now 
+$git diff --cached
+you will get the differences of the files you changed relatively to the previous version (of the same file).
+When you apply 
+$git commit
+then, the file becomes a part of the working directory and your are now one commit  ahead from the remote repo.
+To update the remote repo 
+$git push
+If you don't give $git push and instead give
+$chekout filename
+then, all the changes will be lost.
 
-If you want to create & checkout to a new branche then
+In case you want to create and checkout to a new branch then
 $git checkout -b foo
+
 and to push it in the remote repo
-$git  push origin foo
 
-Now you have to branches : master and foo
+$git push origin foo
 
-Say that you made a change on a specific file while you are
-in branch foo. If you want to add the changes of the file to the
-master branch you $checkout master and $git merge foo
+Now you have two branches : master and foo
 
-=== Syncing a fork ===
-First configure a remote for your fork.
+Say that you've made a change on a specific file while you were
+in the branch foo. Now, if you want to add the changes of the file to the
+master branch you have to do 
+$checkout master  
+$git merge foo
+
+=== Syncing your fork with the main repo ===
+First configure a remote for your fork:
+
 $git remote add upstream https://github.com/ORIGINAL_OWNER
 $git remote -v
-Then sync your fork with the upstream
+
+Then sync your fork with the upstream:
+
 $git checkout master
 $git fetch upstream
 $git merge upstream/master
 $git merge
 $git checkout master
 
-=== Develpomnet in a branch ===
-Create a new local branch say mybranch to your fork
+=== Develpoment in a branch ===
+Create a new local branch say "mybranch" to your fork.
+
 $git checkout -b mybranch
-add a new file etc....
+
+Then add a new file etc....
 Push the branch to your (remote) fork
 $git add .
 $git commit -m "sthm"
