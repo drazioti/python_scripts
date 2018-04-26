@@ -124,3 +124,9 @@ $git checkout master
 $git add .
 $git commit -m "."
 $git push
+
+If by a mistake you made 
+$git pull 
+and you want to go back to the previous state, give
+$git revert HEAD
+
