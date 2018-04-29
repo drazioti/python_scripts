@@ -107,8 +107,6 @@ Then sync your fork with the upstream:
 $git checkout master
 $git fetch upstream
 $git merge upstream/master
-$git merge
-$git checkout master
 
 === Develpoment in a branch ===
 Create a new local branch say "mybranch" to your fork.
@@ -129,4 +127,14 @@ If by a mistake you made
 $git pull 
 and you want to go back to the previous state, give
 $git revert HEAD
+
+=== Review a Pull request ===
+$git status
+If you do not have any collisions, then
+say you want to review the pull request
+[WIP] bug fixing #46
+$git fetch upstream pull/46/head:bug
+$git checkout bug
+and you can review the bug.
+
 
