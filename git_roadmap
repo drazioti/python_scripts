@@ -123,10 +123,15 @@ $git add .
 $git commit -m "."
 $git push
 
-If by a mistake you made 
-$git pull 
-and you want to go back to the previous state, give
-$git revert HEAD
+=== If by a mistake you made $git pull === 
+
+Say you want to go back to the previous state, give
+$git revert HEAD #this will not rewrite history
+If you want to go back to a specific commit both the local and the remote repo (origin)
+then 
+$git reset --hard db2b8f5 #this will rewrite history
+$git push -f origin master # this will sync the remote repo (origin master) with your local (master) i.e.
+the remote repo will go back to the previous commit with fingerprint : db2b8f5.
 
 === Review a Pull request ===
 $git status
