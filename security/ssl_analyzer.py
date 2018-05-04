@@ -3,8 +3,10 @@
 
 Initial author: nargo : Azas Dimitrios
 Part of the master thesis.
+Refactoring : K.Draziotis, drazioti@gmail.com
 
-licence : GPG v.2
+licence : GPL v.2
+
 
 """
 
