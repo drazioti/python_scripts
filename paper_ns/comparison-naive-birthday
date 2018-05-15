@@ -33,7 +33,6 @@ def naive(n,hamming,c):
 
 =================================================
 We consider the case n = 84 i.e. the prime p has 600 bits
-For larger values of n the nauve attack takes many hours even for small hamming weights (H_m=4)
 
 #### Time (in seconds) for our attack (first column) and exhastive search (second column)
 
