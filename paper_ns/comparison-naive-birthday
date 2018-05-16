@@ -1,5 +1,5 @@
 We provide a comparison between exhaustive search and our attack.
-With exhaustive searc we mean the following attack
+With exhaustive search we mean the following attack
 
 Pseudocode of Naive exhaustive search
 Input  : c,H
