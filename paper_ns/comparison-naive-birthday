@@ -32,13 +32,13 @@ def naive(n,hamming,c):
                 return
 
 =================================================
-We consider the case n = 84 i.e. the prime p has 600 bits
+** We consider the case n = 84 i.e. the prime p has 600 bits
 
 #### Time (in seconds) for our attack (first column) and exhastive search (second column)
 
 #### Hamming = 4
 
-           message                     our attack -- exhaustive search
+           message                     attack-2 -- exhaustive search
 _____________________________________________________________________
 m2 = 2^(n)+2^(70)+2^(60)+2^(55),  time : 0.299s -- 9.17s
 m3 = 2^(n)+2^(67)+2^(54)+2^(44),  time : 0.35s  -- 10.5s
@@ -59,10 +59,16 @@ m5 = 2^(n)+2^(n-2)+2^(30)+2^(5)+2^(3),       time : 1.23s -- 40.84s
 #### Hamming = 6
 
 m1 = 2^(n)+2^(n-1)+2^(70)+2^(60)+2^(59)+2^(57), time : 3.43s  -- 174s
-m2 = 2^(n)+2^(70)+2^(60)+2^(58)+2^(57)+2^(56),  time : 13.13s -- at least 5min (aborted after 5 min)
-m3 = 2^(n)+2^(70)+2^(5)+2^(5)+2^(3)+2^(0),      time :  2.56s -- at least 5min (aborted after 5 min)
+m2 = 2^(n)+2^(70)+2^(60)+2^(58)+2^(57)+2^(56),  time : 13.13s -- at least 15min (aborted after 15 min)
+m3 = 2^(n)+2^(70)+2^(5)+2^(5)+2^(3)+2^(0),      time :  2.56s -- at least 15min (aborted after 15 min)
 
 #### Hamming = 7
 
 m1 = 2^(n)+2^(n-1)+2^(n-2)+2^(70)+2^(60)+2^(59)+2^(57), time :  43s   -- at least 5min (aborted after 5 min)
 
+** We consider the case n = 232 i.e. the prime p has 2048 bits
+
+#### Hamming = 6
+
+m1 = 2^(n)+2^(n-1)+2^(70)+2^(60)+2^(59)+2^(57), time : at least 15min (aborted after 15 min)
+m2 = 2^(n)+2^(70)+2^(60)+2^(58)+2^(57)+2^(56),  time : 332s -- 1820s
