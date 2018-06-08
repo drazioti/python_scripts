@@ -5,5 +5,5 @@ Ref. : Naccache, David; Stern, Jacques (1998). "A New Public Key Cryptosystem Ba
 The code is written in sagemath, ver. 6.9
 
 the code was used in paper: Birthday type attacks to the Naccache-Stern Knapsack cryptosystem,to appear in : IPL,
-joint work with M. Anastasiadisa, , N. Chatzis.
+joint work with M. Anastasiadis and N. Chatzis.
 
