@@ -16,5 +16,5 @@ The second is an heuristic algorithm using branch and bound to solve compact kna
 The third is a comparison between three algorithms in order to find small solutions of a linear equation, a1x1+...+anxn=s.
 The two last files contain an attack to compact knapsack problems by reducing to a suitable cvp problem.
 
-The code concerns the paper: Improved attacks on knapsack problem with their variants and a knapsack type ID-scheme. To appear in : Advances in Mathematics of Communication, American Inst. of Math. Sciences, 21 pages ([1]) - Joint work with A. Papadopoulou.
+The code concerns the paper (goo.gl/o9CnHB): Improved attacks on knapsack problem with their variants and a knapsack type ID-scheme. To appear in : Advances in Mathematics of Communication, American Inst. of Math. Sciences, 21 pages ([1]) - Joint work with A. Papadopoulou.
 
