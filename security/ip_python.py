@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 """
+author: K.Draziotis, drazioti@gmail.com
+licence : GPL v.2
+
 A simple script that checks your ip every some time interval
 and write it to the file ip_file.txt
 
