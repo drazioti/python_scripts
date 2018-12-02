@@ -1,4 +1,4 @@
---Basic Definitions--
+---Basic Definitions---
 Repository : a database that contain information to manage the history
  of a project. There two structures of a git repository. 
 1. Index : which is a binary file and
