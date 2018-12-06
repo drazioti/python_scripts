@@ -94,6 +94,10 @@ origin	https://github.com/drazioti/repo_name.git (push)
 upstream	https://github.com/ORIGINAL_OWNER/repo_name.git (fetch)
 upstream	https://github.com/ORIGINAL_OWNER/repo_name.git (push)
 
+to delete the upstream
+
+$git remote rm upstream
+
 === Develpoment, using a branch ===
 Create a new local branch say "mybranch" to your fork.
 
@@ -135,5 +139,3 @@ say you want to review the pull request
 $git fetch upstream pull/46/head:bug
 $git checkout bug
 and you can review the bug.
-
-
