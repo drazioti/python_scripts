@@ -113,6 +113,18 @@ $git add .
 $git commit -m "."
 $git push
 
+If while editing files in your branch 'mybranch'
+another user chenged something in the remote master branch 
+do the follwing.
+
+$git checkout master
+$git fetch upstream
+$git merge upstream/master
+$git checkout mybranch
+$git rebase origin/master
+solve conflicts by removing <,=,> markers
+
+
 === If by a mistake you made $git pull === 
 
 Say you want to go back to the previous state, give
