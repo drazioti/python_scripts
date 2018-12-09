@@ -1,4 +1,4 @@
----Basic Definitions---
+--Basic Definitions--
 Repository : a database that contain information to manage the history
  of a project. There two structures of a git repository. 
 1. Index : which is a binary file and
@@ -94,12 +94,16 @@ origin	https://github.com/drazioti/repo_name.git (push)
 upstream	https://github.com/ORIGINAL_OWNER/repo_name.git (fetch)
 upstream	https://github.com/ORIGINAL_OWNER/repo_name.git (push)
 
+to delete the upstream
+
+$git remote rm upstream
+
 === Develpoment, using a branch ===
 Create a new local branch say "mybranch" to your fork.
 
 $git checkout -b mybranch
 
-Then add make the chnages you want....
+Then add/make the changes you want.
 Push the branch to your (remote) fork
 $git add .
 $git commit -m "sthm"
@@ -108,6 +112,18 @@ $git checkout master
 $git add .
 $git commit -m "."
 $git push
+
+If while editing files in your branch 'mybranch'
+another user chenged something in the remote master branch 
+do the follwing.
+
+$git checkout master
+$git fetch upstream
+$git merge upstream/master
+$git checkout mybranch
+$git rebase origin/master
+solve conflicts by removing <,=,> markers
+
 
 === If by a mistake you made $git pull === 
 
@@ -121,6 +137,12 @@ $git reset --hard db2b8f5       #this will rewrite history
 $git push -f origin master      # this will sync the remote repo (origin master) with your local (master) i.e.
 the remote repo will go back to the previous commit with fingerprint : db2b8f5 
 
+=== If you want to change the commit message of a previous commit ===
+
+$git rebase -i <commit hash you want to change>
+
+You can find the previous hashes by using $git log
+
 === Review a Pull request of the upstream repository ===
 $git status
 If you do not have any collisions, then
@@ -129,5 +151,3 @@ say you want to review the pull request
 $git fetch upstream pull/46/head:bug
 $git checkout bug
 and you can review the bug.
-
-
