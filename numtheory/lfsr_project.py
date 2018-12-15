@@ -55,12 +55,11 @@ Say for instance that you want to encrypt the text 'Simplecanbeharderthancomplex
 
 >text = 'Simplecanbeharderthancomplex'
 >streambits = text_enc(text)
->initial_seed = [1,1,0,0,1,0,1,0,1,1]
+>initial_seed = [0,0,0,0,1,0,1,0,1,1]
 >O = lfsr(initial_seed,[0,0,0,0,0,1,1,0,1,1],len(streambits),1)
 >keystream = list_to_string(O)
-110101001110010100010101101100100001100111011110
-010111010111011011010000001111001001101000110111
-00100100100000000110000101101111100011010000
+>text_dec(string_xor(text_enc(text),keystream))
+'iy-t)ocojaiz(lwu!egr!ghglgn)'
 
 """
 #*****************************************************************************
@@ -163,7 +162,7 @@ def lfsr(seed,feedback,bits, flag):
     if flag==0:
         print('initial seed :',seed)
     for i in range(bits):
-        xor = sumxor([seed[i] for i in feedback_new])
+        xor = sumxor([seed[j] for j in feedback_new])
         output.append(seed.pop()) #extract to output the right-most bit of current seed
         seed.appendleft(xor)      #insert from left the result of the previous xor 
         if flag==0:
