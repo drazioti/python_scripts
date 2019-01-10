@@ -1,0 +1,14 @@
+In attack.py we provide an attack to (EC)DSA system.
+The attack is based on lattices, in fact to CVP.
+
+A brief outline of the steps we implemented.
+
+(i)   First we choose  a sequence f_q(n).
+(ii)  Then we compute the number of signatures, say n.
+(iii) pick some integers A_i in specific intervals
+(iv)  Creates the DSA lattices (i.e. a matrix where its rows, generares the lattice)
+(v)   Apply Babai
+
+The code is wriiten in sagemath ver. 8.1 
+
+
