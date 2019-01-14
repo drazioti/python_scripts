@@ -1,9 +1,9 @@
 '''
- Requirements : The code is written in sagemath ver. 8.1
+ Requirements : The code is written in Sagemath ver. 8.1
   
  AUTHORS: K. Draziotis (2018): initial version
  
- REFERENCES:  
+ REFERENCES:  http://www.sagemath.org/
 
 For instance the following code generates a random DSA-system with secret key
 159-bits and derivative ephemeral keys 157-bits. q is fixed to a specific prime of 160-bits.
@@ -11,11 +11,11 @@ We used the function ZZ.random_element(bound) of sagemath to generate random int
 
 n = 200;
 q,A,target,sol,nr,M_n= equivalences_dsa(n,159,157,'',3) # an instance of DSA-system
-M = matrix_dsa(A,q,n) # we generate the DSA-matrix
+M = matrix_dsa(A,q,n)       # we generate the DSA-matrix
 print "n=",n
 M = M.BKZ(block_size=70)    # preprocessing wth BKZ (block_size=70)
 M_GS = M.gram_schmidt()[0]  # The Gram-Schimdt basis of the matrix M
-t=target #our target vector
+t=target                    # our target vector
 bab = babai(M,M_GS,t)       # we execute babai with input the DSA matrix M, its GSO, and the target vector
 print bab[0]==sol[0]        # returns true if babai found the secret key, else false
 
@@ -38,7 +38,7 @@ for i in range(count):
 print j/count*100. # we print the success rate of the attack
 
 Experiment - 2
-#case  f = (ln(c*(n+1))).n()/(b*n^d*ln(q)).n()
+# case  f = (ln(c*(n+1))).n()/(b*n^d*ln(q)).n()
 # the constants c,b and d are defined in the code
 
 count = 100 # number of instances
@@ -71,7 +71,7 @@ print j/count*100.
 
 '''
 
-from fpylll import *
+from fpylll import *     # we use fpylll library for computing GSO
 from copy import copy
 import numpy as np
 from numpy import linalg as LA
@@ -90,7 +90,7 @@ def constant_of_the_attack(n,q,f):
     return M_n.n()
     
 def matrix_dsa(B,q,n):
-    '''B is a list'''
+    '''B is a list : the first row of the DSA matrix'''
     if len(B)!=n:
         return false
     A = matrix([B])
@@ -119,7 +119,7 @@ def equivalences_dsa(n,BITS,BITS_e,flag,flag_2):
      We generate DSA parameters. In fact we generate a vector (x,y_1,...,y_n)
      which is a solution of a system y_i + A_ix_i + B_i = 0 mod q
      where A_i are chosen as in Proposition 
-     input
+        input
         -----
         > n      : number of messages to be signed
         > BITS   : number of bits of the secret key
@@ -128,7 +128,7 @@ def equivalences_dsa(n,BITS,BITS_e,flag,flag_2):
         > flag_2 = 1 or 2 or 3
         > if flag_2=1 then f=0
         > if flag_2=2 then  f = (ln(c*(n+1)))/(b*n^d*ln(q))
-        > if flag_2=3 then  f = (ln2+ln((n+1)))/(n*ln(q)).
+        
         
         output
         ------
@@ -136,7 +136,7 @@ def equivalences_dsa(n,BITS,BITS_e,flag,flag_2):
         > a vector A = (A1,A2,...,An), with Ai in suitable intervals
         > the solution vector (a,y1,y2,...,yn) for the n equivalences : yi + Ai*x + bi =0 mod q.
         > the norm of the solution vector
-     
+        > the Gaussian Heuristic
        
     '''
     import numpy as np
@@ -149,7 +149,7 @@ def equivalences_dsa(n,BITS,BITS_e,flag,flag_2):
     # uncomment the next line and comment the previous line if you want to generate the results of table 2.
     #a = int(ZZ.random_element( 2^(BITS-1) , 2^BITS - 1 )) #when the number of bits is exactly = BITS
     while a>q:
-         a = int(ZZ.random_element( 2^(159), q));
+         a = int(ZZ.random_element( 2^(159), q)); # we use the PRG of Sagemath : ZZ.random_element
        
     # generation of the derivative ephemeral keys
     y = []
@@ -176,10 +176,9 @@ def equivalences_dsa(n,BITS,BITS_e,flag,flag_2):
         d = 0.99   
         
         f = (ln(c*(n+1))).n()/(b*n^d*ln(q)).n()
-    if flag_2 == 3:
-        f= 0
+
     
-    # we shall randomly pick integers A_i in specific intervals
+    # we shall randomly pick integers A_i in specific intervals [left,right]
     for i in range(0,n):  
         left  = ceil( q^( f + (i+1) / (n+1) )/2 )
         right = floor( q^( f + (i+1)/(n+1) )/1.5 )

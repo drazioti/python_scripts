@@ -1,4 +1,4 @@
-In attack.py we provide an attack to (EC)DSA system.
+In the file attack.py, we provide an attack to (EC)DSA system.
 The attack is based on lattices, in fact to CVP.
 
 A brief outline of the steps we implemented.
