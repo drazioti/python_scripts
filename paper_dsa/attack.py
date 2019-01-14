@@ -7,7 +7,7 @@
 
 For instance the following code generates a random DSA-system with secret key
 159-bits and derivative ephemeral keys 157-bits. q is fixed to a specific prime of 160-bits.
-
+We used the function ZZ.random_element(bound) of sagemath to generate random integers <= bound.
 
 n = 200;
 q,A,target,sol,nr,M_n= equivalences_dsa(n,159,157,'',3) # an of DSA-system
@@ -143,17 +143,21 @@ def equivalences_dsa(n,BITS,BITS_e,flag,flag_2):
             
     q = 1097479964745794789728520663375990048516704632017L # a prime 160 bits
     a = int(ZZ.random_element(2^BITS)); # the secret key
+    # uncomment the next line and comment the previous line if you want to generate the result of table 2.
+    #a = int(ZZ.random_element( 2^(BITS-1) , 2^BITS - 1 )) #when the number of bits is exactly = BITS
     while a>q:
-         a = int(ZZ.random_element(2^BITS));
+         a = int(ZZ.random_element( 2^(159), q));
        
     # generation of the derivative ephemeral keys
     y = []
     if BITS==160:
         for i in range(0,n):
-            y.append(int(ZZ.random_element(q))); # the derivative of the ephemeral keys
+            y.append(int(ZZ.random_element( 2^(159), q))); # the derivative of the ephemeral keys are at most q-bits
     else:
         for i in range(0,n):
             y.append(int(ZZ.random_element(2^BITS_e))); # the derivative of the ephemeral keys
+            # uncomment the next line and comment the previous line if you want to generate the result of table 2.
+            #y.append(int(ZZ.random_element(2^(BITS_e-1) ,2^BITS_e-1))); # the derivative of the ephemeral keys, have BITS_e bits
     A = []
     yi = []
     B = []
@@ -164,9 +168,9 @@ def equivalences_dsa(n,BITS,BITS_e,flag,flag_2):
 
     # here we have to choose b,c,d    
     if flag_2 ==  2: 
-        b = 1      # b<=2
-        c = 170    # c>=1
-        d = 0.99   # d<=1
+        b = 1      
+        c = 170    
+        d = 0.99   
         
         f = (ln(c*(n+1))).n()/(b*n^d*ln(q)).n()
     if flag_2 == 3:
@@ -185,7 +189,6 @@ def equivalences_dsa(n,BITS,BITS_e,flag,flag_2):
     # we generate the constant terms of the system        
     for i in range(n):
             B.append(int(mod(-y[i]-A[i]*a, q)) ) # the vector of constants B
-
     sol = [a] + y
     target = [0]+B
     if flag == 'print':
