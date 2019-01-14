@@ -153,7 +153,7 @@ def equivalences_dsa(n,BITS,BITS_e,flag,flag_2):
        
     # generation of the derivative ephemeral keys
     y = []
-    if BITS==160:
+    if BITS_e == 160:
         for i in range(0,n):
             y.append(int(ZZ.random_element( 2^(159), q))); # the derivative of the ephemeral keys are at most q-bits
     else:
