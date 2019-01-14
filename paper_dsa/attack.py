@@ -19,7 +19,7 @@ t=target #our target vector
 bab = babai(M,M_GS,t)       # we execute babai with input the DSA matrix M, its GSO, and the target vector
 print bab[0]==sol[0]        # returns true if babai found the secret key, else false
 
-The exact experiment we execute in the paper are the following
+The exact experiments we executed in the paper are the following.
 
 Experiment - 1
 # case f = 0
@@ -146,7 +146,7 @@ def equivalences_dsa(n,BITS,BITS_e,flag,flag_2):
             
     q = 1097479964745794789728520663375990048516704632017L # a prime 160 bits
     a = int(ZZ.random_element(2^BITS)); # the secret key
-    # uncomment the next line and comment the previous line if you want to generate the result of table 2.
+    # uncomment the next line and comment the previous line if you want to generate the results of table 2.
     #a = int(ZZ.random_element( 2^(BITS-1) , 2^BITS - 1 )) #when the number of bits is exactly = BITS
     while a>q:
          a = int(ZZ.random_element( 2^(159), q));
@@ -179,7 +179,7 @@ def equivalences_dsa(n,BITS,BITS_e,flag,flag_2):
     if flag_2 == 3:
         f= 0
     
-    # we shall randomly pich integers A_i in specific intervals
+    # we shall randomly pick integers A_i in specific intervals
     for i in range(0,n):  
         left  = ceil( q^( f + (i+1) / (n+1) )/2 )
         right = floor( q^( f + (i+1)/(n+1) )/1.5 )
