@@ -10,7 +10,7 @@ For instance the following code generates a random DSA-system with secret key
 We used the function ZZ.random_element(bound) of sagemath to generate random integers <= bound.
 
 n = 200;
-q,A,target,sol,nr,M_n= equivalences_dsa(n,159,157,'',3) # an of DSA-system
+q,A,target,sol,nr,M_n= equivalences_dsa(n,159,157,'',3) # an instance of DSA-system
 M = matrix_dsa(A,q,n) # we generate the DSA-matrix
 print "n=",n
 M = M.BKZ(block_size=70)    # preprocessing wth BKZ (block_size=70)
@@ -19,7 +19,7 @@ t=target #our target vector
 bab = babai(M,M_GS,t)       # we execute babai with input the DSA matrix M, its GSO, and the target vector
 print bab[0]==sol[0]        # returns true if babai found the secret key, else false
 
-The exact experiment we execute in the paper are the follwing
+The exact experiment we execute in the paper are the following
 
 Experiment - 1
 # case f = 0
@@ -27,23 +27,26 @@ count = 100 # number of instances
 j = 0
 n = 200 # this is the maximum suitable n for the f_q we chose
 for i in range(count):    
-    q,A,target,sol,nr,M_n= equivalences_dsa(n,159,157,'',3) # instances of dsa
+    q,A,target,sol,nr,M_n= equivalences_dsa(n,159,157,'',3) # an instance of DSA
     M = matrix_dsa(A,q,n)
     M = M.BKZ(block_size=70)
     M_GS = M.gram_schmidt()[0]
-    t=target
+    t = target
     bab = babai(M,M_GS,t)
     if bab[0]==sol[0]:
         j = j + 1
-print j/count*100.
+print j/count*100. # we print the success rate of the attack
 
 Experiment - 2
 #case  f = (ln(c*(n+1))).n()/(b*n^d*ln(q)).n()
-count = 100
-j = 0
-n = 206 # this is the maximum suitable n fir the specific f_q
+# the constants c,b and d are defined in the code
+
+count = 100 # number of instances
+j = 0       # counts the successes
+n = 206     # this is the maximum suitable n for the specific sequence f_q(n)
+
 for i in range(count):
-    q,A,target,sol,nr,M_n= equivalences_dsa(n,159,157,'',2) # instances of dsa (q is fixed) 
+    q,A,target,sol,nr,M_n= equivalences_dsa(n,159,157,'',2) # an instance of DSA (q is fixed) 
     M = matrix_dsa(A,q,n)
     M = M.BKZ(block_size=70)
     M_GS = M.gram_schmidt()[0]
@@ -100,8 +103,8 @@ def matrix_dsa(B,q,n):
     return M3 
 
 ### Babai's Nearest Plane Algorithm
-### Input : a basis matrix M of lattice, 
-### the associated Gram-Schmidt basis matrix M_GS and a target vector t and returns the result of Babai's algorithm.
+### Input : a basis matrix M of a lattice, 
+### the associated Gram-Schmidt basis matrix M_GS and a target vector t. 
 ### Output :  an approximate closest vector to t
 
 def babai(M,M_GS,t):
@@ -156,7 +159,7 @@ def equivalences_dsa(n,BITS,BITS_e,flag,flag_2):
     else:
         for i in range(0,n):
             y.append(int(ZZ.random_element(2^BITS_e))); # the derivative of the ephemeral keys
-            # uncomment the next line and comment the previous line if you want to generate the result of table 2.
+            # uncomment the next line and comment the previous line if you want to generate the results of table 2.
             #y.append(int(ZZ.random_element(2^(BITS_e-1) ,2^BITS_e-1))); # the derivative of the ephemeral keys, have BITS_e bits
     A = []
     yi = []
@@ -166,7 +169,7 @@ def equivalences_dsa(n,BITS,BITS_e,flag,flag_2):
     if flag_2 ==1:
         f = (ln(2)+ln(n+1))/(2*n*ln(q)).n()
 
-    # here we have to choose b,c,d    
+    # here we choose b,c,d    
     if flag_2 ==  2: 
         b = 1      
         c = 170    
