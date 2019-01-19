@@ -10,15 +10,10 @@ The paper improves the result of [1] and also improves the results paper [2].
 
 As far as the paper [2], the authors provide an attack using only 100 signatures and 2-MSB for the corresponding
 ephemeral keys. Using a BDD with pruning method, they got a success rate 23%. i.e. they found the secret keys for 23% of
- their instances. We provide an attack that finds the secret keys of DSA systems, knowing 1-bit of 206 signatures, with success rate 62%.
+their instances. We provide an attack that finds the secret keys of DSA systems, knowing 1-bit of (multiples) of ephemeral keys and knowing 206 signatures, with success rate 62%.
 
-A brief outline of the steps we implemented.
-
-(i)   First we choose  a sequence f_q(n).
-(ii)  Then we compute the number of signatures, say n.
-(iii) pick some integers A_i in specific intervals
-(iv)  Creates the DSA lattices (i.e. a matrix where its rows, generares the lattice)
-(v)   Apply Babai
-
-
+References
+----------
+[1] D. Poulakis, New lattice attacks on DSA schemes, J. Math. Cryptol., 10 (2) (2016), 135–144.
+[2] M. Liu, P. Q. Nguyen, Solving BDD by Enumeration: An Update, CT-RSA 2013, LNCS, volume 7779.
 
