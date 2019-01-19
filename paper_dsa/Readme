@@ -1,5 +1,16 @@
-In the file attack.py, we provide an attack to (EC)DSA system.
-The attack is based on lattices, in fact to CVP.
+In the file attack.py, we provide the code for an attack to (EC)DSA system.
+The attack is based on lattices, in fact to BDD.
+The code is wriiten in sagemath ver. 8.1.
+Also, the code can be easily transfered to fpylll.
+
+Using these code we execute the experiments provided in the paper :
+M. Adamoudis, K.A. Draziotis, D. Ppoulakis, Enhansing an attack to DSA schemes.
+
+The paper improves the result of [1] and also improves the results paper [2].
+
+As far as the paper [2], the authors provide an attack using only 100 signatures and 2-MSB for the corresponding
+ephemeral keys. Using a BDD with pruning method, they got a success rate 23%. i.e. they found the secret keys for 23% of
+ their instances. We provide an attack that finds the secret keys of DSA systems, knowing 1-bit of 206 signatures, with success rate 62%.
 
 A brief outline of the steps we implemented.
 
@@ -9,6 +20,5 @@ A brief outline of the steps we implemented.
 (iv)  Creates the DSA lattices (i.e. a matrix where its rows, generares the lattice)
 (v)   Apply Babai
 
-The code is wriiten in sagemath ver. 8.1 
 
 

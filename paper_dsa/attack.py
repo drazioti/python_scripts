@@ -1,9 +1,12 @@
 '''
  Requirements : The code is written in Sagemath ver. 8.1
   
- AUTHORS: K. Draziotis (2018): initial version
+ AUTHORS: K. Draziotis (drazioti@gmail.com) 2018: initial version
  
+
  REFERENCES:  http://www.sagemath.org/
+
+ * Please report bugs *
 
 For instance the following code generates a random DSA-system with secret key
 159-bits and derivative ephemeral keys 157-bits. q is fixed to a specific prime of 160-bits.
@@ -21,23 +24,7 @@ print bab[0]==sol[0]        # returns true if babai found the secret key, else f
 
 The exact experiments we executed in the paper are the following.
 
-Experiment - 1
-# case f = 0
-count = 100 # number of instances
-j = 0
-n = 200 # this is the maximum suitable n for the f_q we chose
-for i in range(count):    
-    q,A,target,sol,nr,M_n= equivalences_dsa(n,159,157,'',3) # an instance of DSA
-    M = matrix_dsa(A,q,n)
-    M = M.BKZ(block_size=70)
-    M_GS = M.gram_schmidt()[0]
-    t = target
-    bab = babai(M,M_GS,t)
-    if bab[0]==sol[0]:
-        j = j + 1
-print j/count*100. # we print the success rate of the attack
-
-Experiment - 2
+Experiment - 2 : Table 1
 # case  f = (ln(c*(n+1))).n()/(b*n^d*ln(q)).n()
 # the constants c,b and d are defined in the code
 
@@ -59,6 +46,35 @@ for i in range(count):
     print "----"
 print j/count*100.
            
+The improved heuristic attack
+
+# improved heuristic babai attack for large keys
+# f = 0  vs f \not = 0
+# preprocessing BKZ with blocksize = 70
+# q is the same in all examples
+# q = 1097479964745794789728520663375990048516704632017L : 160 bits prime
+
+j = 0
+count = 100
+alpha = 160 # the bit length of the secret key < q
+beta  = 159 # the bit length of the ephemeral key
+n = 206     # this is the max suitable n
+epsilon = 2**(beta) - 2**(beta-2)
+
+ 
+for i in range(count):    
+    q,A,target,sol,nr,M_n= equivalences_dsa(n,alpha,beta,'',2) # instance of DSA system
+    M = matrix_dsa(A,q,n)
+    M = M.BKZ(block_size=85)
+    M_GS = M.gram_schmidt()[0]
+    t = vector(target) + vector((n+1)*[epsilon])
+    bab = babai(M,M_GS,t)
+    print "i=",i+1
+    if bab[0]==sol[0]:
+        print "true",i+1,"small:",small,"secret key:",sol[0]
+        j = j + 1
+        print j/(i+1)*100.
+print "success rate:",j/count*100.
 
 #*****************************************************************************
 #       Copyright (C) 2018-2019 K.Draziotis <drazioti@gmail.com>
@@ -68,7 +84,6 @@ print j/count*100.
 #  the License, or (at your option) any later version.
 #                  http://www.gnu.org/licenses/
 #*****************************************************************************
-
 '''
 
 from fpylll import *     # we use fpylll library for computing GSO
@@ -103,9 +118,9 @@ def matrix_dsa(B,q,n):
     return M3 
 
 ### Babai's Nearest Plane Algorithm
-### Input : a basis matrix M of a lattice, 
+### * Input : a basis of a lattice, given as a matrix M (the rows generates the lattice), 
 ### the associated Gram-Schmidt basis matrix M_GS and a target vector t. 
-### Output :  an approximate closest vector to t
+### * Output :  an approximate closest vector to t
 
 def babai(M,M_GS,t):
     v = vector([0 for i in range(len(t))])
@@ -121,22 +136,22 @@ def equivalences_dsa(n,BITS,BITS_e,flag,flag_2):
      where A_i are chosen as in Proposition 
         input
         -----
-        > n      : number of messages to be signed
-        > BITS   : number of bits of the secret key
-        > BITS_e : number of bits of the (derivative) ephemeral keys (yi=AiCi^{-1}ki mod q
-        > flag = 'print' or ''
-        > flag_2 = 1 or 2 or 3
-        > if flag_2=1 then f=0
-        > if flag_2=2 then  f = (ln(c*(n+1)))/(b*n^d*ln(q))
+        - n      : number of messages to be signed
+        - BITS   : number of bits of the secret key
+        - BITS_e : number of bits of the (derivative) ephemeral keys (yi=AiCi^{-1}ki mod q
+        - flag = 'print' or ''
+        - flag_2 = 1 or 2 or 3
+        - if flag_2=1 then f=0
+        - if flag_2=2 then  f = (ln(c*(n+1)))/(b*n^d*ln(q))
         
         
         output
         ------
-        > a vector B = (0,b1,...,bn) : the target vector
-        > a vector A = (A1,A2,...,An), with Ai in suitable intervals
-        > the solution vector (a,y1,y2,...,yn) for the n equivalences : yi + Ai*x + bi =0 mod q.
-        > the norm of the solution vector
-        > the Gaussian Heuristic
+        - a vector B = (0,b1,...,bn) : the target vector
+        - a vector A = (A1,A2,...,An), with Ai in suitable intervals
+        - the solution vector (a,y1,y2,...,yn) for the n equivalences : yi + Ai*x + bi =0 mod q.
+        - the norm of the solution vector
+        - the Gaussian Heuristic
        
     '''
     import numpy as np
@@ -145,9 +160,8 @@ def equivalences_dsa(n,BITS,BITS_e,flag,flag_2):
     import random
             
     q = 1097479964745794789728520663375990048516704632017L # a prime 160 bits
-    a = int(ZZ.random_element(2^BITS)); # the secret key
-    # uncomment the next line and comment the previous line if you want to generate the results of table 2.
-    #a = int(ZZ.random_element( 2^(BITS-1) , 2^BITS - 1 )) #when the number of bits is exactly = BITS
+    #a = int(ZZ.random_element(2^BITS)); # the secret key
+    a = int(ZZ.random_element( 2^(BITS-1) , 2^BITS - 1 )) #when the number of bits is exactly = BITS
     while a>q:
          a = int(ZZ.random_element( 2^(159), q)); # we use the PRG of Sagemath : ZZ.random_element
        
@@ -158,9 +172,8 @@ def equivalences_dsa(n,BITS,BITS_e,flag,flag_2):
             y.append(int(ZZ.random_element( 2^(159), q))); # the derivative of the ephemeral keys are at most q-bits
     else:
         for i in range(0,n):
-            y.append(int(ZZ.random_element(2^BITS_e))); # the derivative of the ephemeral keys
-            # uncomment the next line and comment the previous line if you want to generate the results of table 2.
-            #y.append(int(ZZ.random_element(2^(BITS_e-1) ,2^BITS_e-1))); # the derivative of the ephemeral keys, have BITS_e bits
+            #y.append(int(ZZ.random_element(2^BITS_e))); # the derivative of the ephemeral keys
+            y.append(int(ZZ.random_element(2^(BITS_e-1) ,2^BITS_e-1))); # the derivative of the ephemeral keys, have BITS_e bits
     A = []
     yi = []
     B = []
@@ -186,14 +199,14 @@ def equivalences_dsa(n,BITS,BITS_e,flag,flag_2):
         if left==right:
             A.append(int(left))
         else:
-            A.append( int(ZZ.random_element(left,right))); # the vector A
+            A.append( int(ZZ.random_element(left,right))); # the vector A, chose randomly from the interval (left,right)
             
-    # we generate the constant terms of the system        
+    # we generate the constant terms of the DSA system        
     for i in range(n):
             B.append(int(mod(-y[i]-A[i]*a, q)) ) # the vector of constants B
-    sol = [a] + y
-    target = [0]+B
-    if flag == 'print':
+    sol = [a] + y  # A solution of the system
+    target = [0]+B # the target vector
+    if flag == 'print': # these are printed only when we choose flag = 'print'
         for i in range(n):
             print "verifying...",mod(A[i]*a + y[i] + B[i],q)==0
         print "sol=",sol
@@ -229,13 +242,14 @@ def guess_suitable_n(n,flag_2):
     if flag_2 ==1:
         f = (ln(2)+ln(n+1))/(2*n*ln(q)).n()
     if flag_2 ==  2: 
-        ### here b,c, and d must agree with b,c, and of function
-        b = 1 #b<=2
-        c = 170 #c>=1
-        d = 1 #d<=1
+        ### here (b,c,d) agrees with (b,c,d) of function
+        b = 1 
+        c = 170
+        d = 1 
         f = (ln(c*(n+1))).n()/(b*n^d*ln(q)).n()
     if flag_2 == 3:
         f= 0
+        
     print "f=",f
     
     N = []
@@ -243,12 +257,8 @@ def guess_suitable_n(n,flag_2):
         leftright= []
         for i in range(0,n_):  
             left  = ceil( q^( f + (i+1) / (n_+1) )/2 )
-            right = floor( q^( f + (i+1)/(n_+1) )/1.5 )
-        
+            right = floor( q^( f + (i+1)/(n_+1) )/1.5 )    
             leftright.append(right-left)
-       
         if np.all(np.array(leftright) >= 0):
             N.append(n_)
     return max(N)
-   
-   
