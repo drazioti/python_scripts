@@ -4,9 +4,9 @@ The code is wriiten in sagemath ver. 8.1.
 Also, the code can be easily transfered to fpylll.
 
 Using these code we execute the experiments provided in the paper :
-M. Adamoudis, K.A. Draziotis, D. Ppoulakis, Enhansing an attack to DSA schemes.
+M. Adamoudis, K.A. Draziotis, D. Poulakis, Enhancing an attack to DSA schemes.
 
-The paper improves the result of [1] and also improves the results paper [2].
+The paper improves the results of [1].
 
 As far as the paper [2], the authors provide an attack using only 100 signatures and 2-MSB for the corresponding
 ephemeral keys. Using a BDD with pruning method, they got a success rate 23%. i.e. they found the secret keys for 23% of
