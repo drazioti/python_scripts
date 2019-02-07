@@ -52,27 +52,28 @@ We provide the code we used to generate table 1 :
     print j/count*100.
            
 The improved heuristic attack :
-
-    # improved heuristic Babai attack for large keys
+    
+    #improved heuristic Babai attack for large keys
     # q is the same in all examples
     # q = 1097479964745794789728520663375990048516704632017L
 
     j = 0
-    count = 100  # number of instances
-    alpha = 160  # the bits of the secret key <q
-    beta  = 159  # the bits of the ephemeral keys
+    count = 100
+    alpha = 160
+    beta  = 159
     epsilon  = 2**(beta) - 2**(beta-2)
-    n = 206      # this is the max suitable n
-     
+    n = 206  # this is the max suitable n
+    k = 0
+
     for i in range(count):    
         q,A,target,sol,nr,M_n= equivalences_dsa(n,alpha,beta,'',2) # instances of dsa
         M = matrix_dsa(A,q,n)
-        M = M.BKZ(block_size=85)
+        M = M.BKZ(block_size=70)
         M_GS = M.gram_schmidt()[0]
         t = vector(target) + vector((n+1)*[epsilon])
         bab = babai(M,M_GS,t)
         print "i=",i+1
-        if bab[0]-epsilon == sol[0]:
+        if bab[0] == sol[0]:
             j = j + 1
         print "current success rate:",j/(i+1)*100.
     print "success rate:",j/count*100.
@@ -125,13 +126,14 @@ def matrix_dsa(B,q,n):
 ### * Input : a basis of a lattice, given as a matrix M (the rows generates the lattice), 
 ### the associated Gram-Schmidt basis matrix M_GS and a target vector t. 
 ### * Output :  an approximate closest vector to t
-
+### The pseudocode can be found in the paper
+    
 def babai(M,M_GS,t):
-    v = vector([0 for i in range(len(t))])
+    w=vector(t)
     t=vector(t)
-    for i in range(len(t)-1,-1,-1):
-        v = v + round(((t-v).dot_product(M_GS[i]))/(M_GS[i].norm())^2)*M[i]
-    return v+t
+    for i in range(rank(M)-1,-1,-1):
+        w = w - round((w.dot_product(M_GS[i]))/(M_GS[i].norm())^2)*M[i]
+    return t - w
 
 def equivalences_dsa(n,BITS,BITS_e,flag,flag_2): 
     '''
