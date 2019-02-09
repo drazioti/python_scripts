@@ -6,8 +6,6 @@ Part of the master thesis  :  https://ikee.lib.auth.gr/record/297191/?ln=en
 Refactoring : K.Draziotis, drazioti@gmail.com
 
 licence : GPL v.2
-
-
 """
 
 import socket,ssl,OpenSSL.crypto
@@ -32,7 +30,6 @@ def checkIfTrusted(hostname,port):
             print "Trusted: No"
     sock.close()
     return
-
 
 #Gets Certificate details 
 def getCertificateDetails(hostname,port):  
@@ -78,10 +75,8 @@ def getCertificateDetails(hostname,port):
         except:
             print 'Certificate date format unknown.'        
         
-        
         # 1. we convert PEM to ASN format
         # 2. we export the rsa_modulus and public exponent e
-
 
         pub_asn1= OpenSSL.crypto.dump_privatekey(FILETYPE_ASN1, key)
         pub_der=asn1.DerSequence()
@@ -218,10 +213,6 @@ def getSupportedCiphers(hostname,port):
         print "RC4: Yes"
     else:
         print "RC4: No"
-    
-    
-
-
 
 try:
     print "Give server name:"
