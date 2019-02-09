@@ -2,7 +2,7 @@
 """
 
 Initial author: nargo : Azas Dimitrios
-Part of the master thesis.
+Part of the master thesis  :  https://ikee.lib.auth.gr/record/297191/?ln=en
 Refactoring : K.Draziotis, drazioti@gmail.com
 
 licence : GPL v.2
