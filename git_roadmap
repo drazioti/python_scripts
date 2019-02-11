@@ -1,4 +1,10 @@
---Basic Definitions--
+Initial author : K.A.Draziotis
+
+=== Simple Github tutorial v.1.0 ===
+
+
+-- Basic Definitions --
+
 Repository : a database that contain information to manage the history
  of a project. There two structures of a git repository. 
 1. Index : which is a binary file and
@@ -19,6 +25,7 @@ commit(s).
 Index : is a binary file that describes the structure of the repository.
 
 -- Git commands --
+
 $git help or $git help --all|less
 $git --version
 $git help "command" for instance $git help add
@@ -77,6 +84,7 @@ $checkout master
 $git merge foo
 
 === Syncing your fork with the main repo ===
+
 First configure a remote for your fork:
 
 $git remote add upstream https://github.com/ORIGINAL_OWNER
@@ -106,6 +114,7 @@ $git checkout -b mybranch
 
 Then add/make the changes you want.
 Push the branch to your (remote) fork
+
 $git add .
 $git commit -m "sthm"
 $git push --set-upstream origin mybranch
