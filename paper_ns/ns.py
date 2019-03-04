@@ -12,14 +12,15 @@
 	
 	EXAMPLES: 
 	===========
-sage:X = ns()  							# Create an instance of the class ns() 
+sage:X = ns()  			        # Create an instance of the class ns() 
 sage:p,q,n,u,s = X.choose_pk_sk(600) 	# we choose the public and secret key with prime p 600 bits (p is a safe prime)
-										# Other choices are 1024,2048 bits
-										# s is the secret key
+					# Other choices are 1024,2048 bits
+					# s is the secret key
 
 sage:m = 2^(n)+2^(n-1)+2^(n-20)+2^(23)+2^(8)+2^7+2^5+2^4+2 	# The message
-sage:c = X.encrypt(m,p,u)  # the encryption of m
-sage:X.decrypt(c,n,p,s)==m # check that the decryption is correct
+sage:c = X.encrypt(m,p,u)  					# the encryption of m
+sage:X.decrypt(c,n,p,s)==m 					# check that the decryption is correct
+secret has inverse mod (p-1)?  True
 True
 
 sage:hamming  = X.popcount_py(bin(m))   # the Hamming weight of the message m
@@ -39,7 +40,7 @@ start = time.time()
 
 R = []
 L = []
-r = 1
+r = 1 		# number of examples
 msg = None
 while msg==None:
     print "round:",r
