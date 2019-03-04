@@ -146,7 +146,7 @@ then,
 
 $git reset --hard db2b8f5       # this will rewrite history
 $git push -f origin master      # this will sync the remote repo (origin master) with your local (master) i.e.
-								# the remote repo will go back to the previous commit with fingerprint : db2b8f5 
+				# the remote repo will go back to the previous commit with fingerprint : db2b8f5 
 
 === If you want to change the commit message of a previous commit ===
 
