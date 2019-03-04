@@ -136,9 +136,10 @@ class ns(object):
         return floor(log(n,2))+1
                         
     def perms(n,hamming,flag): 
-    # returns all the permutaions of n-bit words with specific hamming weight. 
+    # returns all the permutations of n-bit words with specific hamming weight. 
     # if flag!=0 then returns all the n-bit words (the algorithm ignores the variable hamming).
     # Finally, it returns a set of strings not lists.
+
         import itertools
         if not n:
             return
@@ -158,7 +159,7 @@ class ns(object):
                 yield s
                 
     def perms_out(n,hamming,flag):
-        # the same as the previous fuinction, but returns the elements as lists (not strings)
+        # the same as the previous function, but returns the elements as lists (not strings)
         s = list(perms(n,hamming,flag))
         if flag!=0:
             return [[int(s[j][i]) for i in range(n)] for j in range(len(s))]
@@ -183,15 +184,17 @@ class ns(object):
         del A
         return B
     
-    # Note that func2() returns two lists [A,B], the list A contains the products prod(u_i) and the second 
-    # is needed, when we reconstruct the message m.    
+    # Note that, the following function : func2(), 
+    # returns two lists [A,B], the list A contains the products : prod(u_i) 
+    # and the second is needed when we reconstruct the message m.    
+    # The lenth of the list B is equal with the number of bits of the message m, i.e. n
     
     def func2(L,M,p,c): #M is a list of lists 
         return [ [func1(L,M[i],p,c),bin2int(M[i]) ] for i in range(len(M))]
             
     def find_n(p):
         # in the NS-system, n is defined from the prime p.
-        n=5 
+        n = 5 
         P = [Primes().unrank(i) for i in range(n)]
         product_ = prod(P)
         while(p>product_):
