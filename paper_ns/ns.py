@@ -5,23 +5,24 @@
  
  Please, feel free to report bugs.
 
-References : D. Naccache and J. Stern, A new public key cryptosystem, Proceedings of Eurocrypt 97, LNCS 1233,(1997), Springer-Verlag, p.27--36.
+ References : D. Naccache and J. Stern, A new public key cryptosystem, Proceedings of Eurocrypt 97, LNCS 1233,(1997), Springer-Verlag, p.27--36.
  
  AUTHOR(S):  K. Draziotis (drazioti@gmail.com), initial version : 2017
  credits  :  N.Chatzis, M.Anastasiadis 
 	
 	EXAMPLES: 
 	===========
-sage:X = ns()  					# Create an instance of the class ns() 
-sage:p,q,n,u,s = X.choose_pk_sk(600) 		# we choose the public and secret key with prime p 600 bits (p is a safe prime)
-						# Other choices are 1024,2048 bits
+sage:X = ns()  							# Create an instance of the class ns() 
+sage:p,q,n,u,s = X.choose_pk_sk(600) 	# we choose the public and secret key with prime p 600 bits (p is a safe prime)
+										# Other choices are 1024,2048 bits
+										# s is the secret key
 
 sage:m = 2^(n)+2^(n-1)+2^(n-20)+2^(23)+2^(8)+2^7+2^5+2^4+2 	# The message
-sage:c = X.encrypt(m,p,u)
+sage:c = X.encrypt(m,p,u)  # the encryption of m
 sage:X.decrypt(c,n,p,s)==m # check that the decryption is correct
 True
 
-sage:hamming  = X.popcount_py(bin(m))   # the hamming weight of the message m
+sage:hamming  = X.popcount_py(bin(m))   # the Hamming weight of the message m
 sage:bound = 42                         # the auxiliary variable bound. Here we choose bound = n/2
 sage:print "hamming,n,bound:",hamming,n,bound
 hamming,n,bound: 9 84 42
@@ -44,11 +45,11 @@ while msg==None:
     print "round:",r
     R.append(r)
     I1,I2,U1,U2 = X.gen(n,bound,flag)
-    msg = X.attack(n,bound,p,c,hamming,s,flag,I1,I2,U1,U2) 
+    msg = X.attack(n,bound,p,c,hamming,flag,I1,I2,U1,U2) 
     # we called the method attack()
     
     if msg!=None: 
-        print msg==m    
+        print X.encrypt(msg,p,u)==c # we check if the encryption is equal with c   
         A = time.time()-start
         L.append(A)  
     r = r + 1
@@ -265,13 +266,12 @@ class ns(object):
         
     #attack : Is the modified birthday attack to Naccache-Stern Knapsack cryptosystem
       
-    def attack(self,n,bound1,p,c,hamming,s,flag,I1,I2,U1,U2):   
+    def attack(self,n,bound1,p,c,hamming,flag,I1,I2,U1,U2):   
         import itertools
         
-        def decrypt(c,n,p,s):
-            cs = int(power_mod(c,s,p))
-            P = [Primes().unrank(i) for i in range(n+1)]
-            return sum( (gcd(cs,P[i])-1)*2^i/(P[i]-1) for i in range(n+1) )
+        def encrypt(m,p,u):
+            L =int2bin(m)
+            return [prod(u[::-1][i]^L[i] for i in range(len(L)) )%p][0]
                     
         a1 = 0
         b1 = n
@@ -323,7 +323,7 @@ class ns(object):
                                 R2 = int2bin_(M2[zip(*M2)[0].index(sol)][1],len(I2) )                    
                                 # We reconstruct the initial message                        
                                 msg = vector([2^j for j in I1]).dot_product(vector(R1))+vector([2^j for j in I2]).dot_product(vector(R2))
-                                if decrypt(c,n,p,s)==msg:
+                                if encrypt(msg,p,u)==c:
                                     print "We found the message!"
                                     return msg
                                     break
@@ -339,7 +339,7 @@ class ns(object):
                                     R2 = int2bin_(M2[zip(*M2)[0].index(sol)][1],len(I2) )
                                     # We reconstruct the initial message                        
                                     msg = vector([2^j for j in I1]).dot_product(vector(R1))+vector([2^j for j in I2]).dot_product(vector(R2))
-                                    if decrypt(c,n,p,s)==msg:                                        
+                                    if encrypt(msg,p,u)==c:                                       
                                         del R1
                                         del R2
                                         del R3
@@ -400,7 +400,6 @@ class ns(object):
             p,q =356016873783498533947581036092641272306360368050925808571238846207127055154301347886337239040241779594156481218243271432984000696808011616039210639390840176709567072017753811949256718002480410000475130359737947125690893606890239817035840801874264111611236566297668497801840516568157731657056332626732525479259,178008436891749266973790518046320636153180184025462904285619423103563527577150673943168619520120889797078240609121635716492000348404005808019605319695420088354783536008876905974628359001240205000237565179868973562845446803445119908517920400937132055805618283148834248900920258284078865828528166313366262739629
             
         s = 5649012341 # the secret key
-        print gcd(p-1,s) == 1
+        print "secret has inverse mod (p-1)? ",gcd(p-1,s) == 1
         u = init(n,p,s) # we generate the public key i.e. the u_i's
         return p,q,n,u,s # we return the primes (p,q) with p=2q+1, the parameter n of the system,the sets u and the secret key s
-
