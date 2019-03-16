@@ -87,7 +87,7 @@ $git merge foo
 
 First configure a remote for your fork:
 
-$git remote add upstream https://github.com/ORIGINAL_OWNER
+$git remote add upstream https://github.com/ORIGINAL_OWNER.git
 $git remote -v
 
 Then sync your fork with the upstream:
