@@ -14,7 +14,7 @@ sage:print "time passed:",B
 
 To save the file to a text file.
 
-with open('811.txt', 'w') as f:
+with open('601.txt', 'w') as f:
     for item in L:
         f.write("%s\n" % item)
 
