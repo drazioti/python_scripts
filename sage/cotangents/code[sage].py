@@ -17,7 +17,7 @@ print "time passed:",B
 def cotangent(h,k):
     var('m')
     if gcd(h,k)==1:
-        S = - np.sum(m/k * cot(pi*m*h/k),m,1,k-1)
+        S = - sum(m/k * cot(pi*m*h/k),m,1,k-1)
         return S
     else:
         return 0
