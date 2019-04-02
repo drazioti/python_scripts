@@ -9,4 +9,4 @@ The code was used in the paper:
 M. Anastasiadis, N. Chatzis and K. A. Draziotis, Birthday type attacks to the Naccache-Stern Knapsack cryptosystem, 
 Information Proc.Letters (Elsevier) Vol. 138, October 2018, Pages 39-43. [IPL](https://www.sciencedirect.com/science/article/pii/S0020019018301273)
 
-For a C++ version see [here](https://github.com/drazioti/NSK-birthday-attack)
+For an improvement of the attack see [here](https://github.com/drazioti/NSK-birthday-attack)
