@@ -8,9 +8,9 @@ sage:M=[];L=[]
 sage:import time
 sage:k = 601
 sage:A = time.time()
-sage:L = [[h/k,cotangent(h,k).n()] for h in range(1,k) if cotangent(h,k)<>0 ]
-sage:B = time.time()-A
-sage:print "time passed:",B
+...  L = [[h/k,cotangent(h,k).n()] for h in range(1,k) if cotangent(h,k)<>0 ]
+...  B = time.time()-A
+...  print "time passed:",B
 
 To save the file to a text file.
 
