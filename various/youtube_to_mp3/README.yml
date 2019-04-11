@@ -1,0 +1,9 @@
+To download only the audio format of you tube videos yu need
+1. youtube_dl
+2. ffmpeg (with lamemp3 enable)
+2a. $cd ffmpeg
+2b. $./configure --enable-libmp3lame
+2c. $make -j 4
+2d. $sudo make install
+
+Then you'll need a list of the you tube links and the myscript.py
