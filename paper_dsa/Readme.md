@@ -22,4 +22,5 @@ knowing 1-bit of (specific multiples) of the ephemeral keys of 206 signatures, w
 References
 ----------
 [1] D. Poulakis, New lattice attacks on DSA schemes, J. Math. Cryptol., 10 (2) (2016), 135–144.
+
 [2] M. Liu, P. Q. Nguyen, Solving BDD by Enumeration: An Update, CT-RSA 2013, LNCS, volume 7779.
