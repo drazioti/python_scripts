@@ -5,7 +5,9 @@ The code is written in sagemath ver. 8.1 (and can be easily transfered to fpylll
 Using this code, we executed the experiments provided in the paper :
 M. Adamoudis, K.A. Draziotis, D. Poulakis, Enhancing an attack to DSA schemes.
 CAI 2019, p. 13-25. LNCS 11545, Springer, 2019
+
 [https://link.springer.com/chapter/10.1007/978-3-030-21363-3_2]
+
 [https://github.com/drazioti/Papers/blob/master/paper/C6_cai2019.pdf]
 
 The paper improves the results of paper [1].
