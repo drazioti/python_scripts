@@ -8,8 +8,8 @@ Requirements : The code is written in Sagemath ver. 8.1
 The following code implements the attack : "Conditional Babai attack".
 
 # Conditional Babai Attack.
-# We uses the two oracles, length oracle A and binary lenght oracle B.
-# Prime q is chosen per example
+# We use the two oracles, length oracle A and binary lenght oracle B.
+# Prime q changes for every instance.
 import time
 
 j = 0             # counts the successes of the attack

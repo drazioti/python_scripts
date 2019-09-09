@@ -1,4 +1,4 @@
-Here we provide two attack to (EC)DSA system.
+Here we provide two attacks to (EC)DSA system.
 In the file attack.py, we provide the code for an attack to (EC)DSA system
 provided in, 
 M. Adamoudis, K.A. Draziotis, D. Poulakis, Enhancing an attack to DSA schemes.
@@ -19,7 +19,7 @@ ephemeral keys. Using a BDD-enumeration with pruning method, they managed to hav
 We provide an attack that finds the secret key of DSA systems, 
 knowing 1-bit of (specific multiples) of the ephemeral keys of 206 signatures, with success rate 62%.
 
-In the file attack_improved.py, we provide an imrovement based on some oracles.
+In the file improved_attack.py, we provide an imrovement based on some oracles.
 
 References
 ----------
