@@ -19,7 +19,14 @@ ephemeral keys. Using a BDD-enumeration with pruning method, they managed to hav
 We provide an attack that finds the secret key of DSA systems, 
 knowing 1-bit of (specific multiples) of the ephemeral keys of 206 signatures, with success rate 62%.
 
+The following files concerns the paper,
+
+Attacking (EC)DSA with partially known multiples of nonces
+by Marios Adamoudis, Konstantinos A. Draziotis,  Dimitrios Poulakis.
+
 In the file improved_attack.py, we provide an imrovement based on some oracles.
+
+In the file table_1.py, we provide the code that we used for Table 1.
 
 References
 ----------
