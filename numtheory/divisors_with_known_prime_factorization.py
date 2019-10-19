@@ -2,6 +2,8 @@ def find_divisors_from_primes(r,H):
     '''  
     Author : K.Draziotis
     Licence : GPL v2  
+    Credits : we mimic the function divisors(n) of Sagemath.
+    
     Say you have a natural number N = p1^e1 * p2^e2 *...*pn^en
     and that yu know the factorization of N.
     Then this function will return all the positive divisors of
