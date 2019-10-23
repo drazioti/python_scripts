@@ -51,7 +51,7 @@ Example:
 	'1100011011101001010010001'
 	
 Say for instance that you want to encrypt the text 'Simplecanbeharderthancomplex' with an lfsr defined by the seed
-[1,1,0,0,1,0,1,0,1,1] and the feedback polynomial : x^10+x^9+x^7+x^6+1.
+[0,0,0,0,1,0,1,0,1,1] and the feedback polynomial : x^10+x^9+x^7+x^6+1.
 
 >text = 'Simplecanbeharderthancomplex'
 >streambits = text_enc(text)
