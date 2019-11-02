@@ -124,8 +124,8 @@ $git commit -m "."
 $git push
 
 If while editing files in your branch 'mybranch'
-another user chenged something in the remote master branch 
-do the follwing.
+another user changed something in the remote master branch 
+do the following.
 
 $git checkout master
 $git fetch upstream
