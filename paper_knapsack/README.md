@@ -18,4 +18,5 @@ The two last files contain an attack to compact knapsack problems by reducing to
 
 The code concerns the paper : Improved attacks on knapsack problem with their variants and a knapsack type ID-scheme. Advances in Mathematics of Communication 2018, 12(3), Pages 429-449, American Institute of Mathematical Sciences  - Joint work with A. Papadopoulou.
 
-[https://github.com/drazioti/Papers/blob/master/paper/J11_amc_2108.pdf]
+[https://github.com/drazioti/Papers/blob/master/paper/J11_amc_2018.pdf]
+
