@@ -136,6 +136,11 @@ $nano [conflict file]
 solve conflicts by removing <,=,> markers
 $git rebase continue
 
+=== If you want to delete a remote branch
+
+$git push <remote_name> --delete <branch_name>
+Usually <remote_name> is origin
+
 === If by a mistake you made $git pull === 
 
 Say you want to go back to the previous state, give
