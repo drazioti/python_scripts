@@ -80,7 +80,7 @@ Now you have two branches : master and foo
 Say that you've made a change on a specific file while you were
 in the branch foo. Now, if you want to add the changes of the file to the
 master branch you have to do 
-$checkout master  
+$git checkout master  
 $git merge foo
 
 === Syncing your fork with the main repo ===
