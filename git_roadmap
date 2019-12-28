@@ -153,6 +153,12 @@ $git reset --hard db2b8f5       # this will rewrite history
 $git push -f origin master      # this will sync the remote repo (origin master) with your local (master) i.e.
 				# the remote repo will go back to the previous commit with fingerprint : db2b8f5 
 
+=== if after pull request you get, error: Your local changes to the following files would be overwritten by merge:..
+
+$git stash save --keep-index
+
+This will remove all local changes from your working copy
+
 === If you want to change the commit message of a previous commit ===
 
 $git rebase -i <commit hash you want to change>
