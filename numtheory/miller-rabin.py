@@ -4,12 +4,16 @@ def miller_rabin(n,k):
     import math
 
     def find_s_t(n):
+        # here we have to compute the order_2 of n
         i = 1
         isint = 0
         while isint == 0:
+            
             isint = math.floor( (n-1)/(2.**i)) - math.ceil( (n-1)/(2.**i))
+            # sos : the variable isint does not work for large n, say 2048 bits
+            # TODO :  fix it
+            
             if isint == 0: # i.e. if n/2^i is integer, continue
-                1==1
                 i = i + 1
             else:
                 isint = 1
