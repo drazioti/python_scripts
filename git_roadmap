@@ -161,9 +161,7 @@ This will remove all local changes from your working copy
 
 === If you want to change the commit message of a previous commit ===
 
-$git rebase -i <commit hash you want to change>
-
-You can find the previous hashes by using $git log
+see https://help.github.com/en/github/committing-changes-to-your-project/changing-a-commit-message
 
 === Review a Pull request of the upstream repository ===
 
