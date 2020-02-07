@@ -176,4 +176,7 @@ say you want to review the pull request
 $git fetch upstream pull/46/head:bug
 $git checkout bug
 
+=== Review a Pull request from the origin ===
+the same, but
+$git fetch origin pull/46/head:bug
 and you can review the bug.
