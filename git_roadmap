@@ -83,7 +83,7 @@ master branch you have to do
 $git checkout master  
 $git merge foo
 
-=== Syncing your fork with the main repo ===
+=== Syncing your local fork with the main repo ===
 
 First configure a remote for your fork:
 
@@ -102,6 +102,8 @@ origin	https://github.com/drazioti/repo_name.git (fetch)
 origin	https://github.com/drazioti/repo_name.git (push)
 upstream	https://github.com/ORIGINAL_OWNER/repo_name.git (fetch)
 upstream	https://github.com/ORIGINAL_OWNER/repo_name.git (push)
+
+To sync with you github repo give add/commit/push
 
 to delete the upstream
 
