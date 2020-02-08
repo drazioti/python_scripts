@@ -5,24 +5,26 @@ Initial author : K.A.Draziotis
 
 -- Basic Definitions --
 
-Repository : a database that contain information to manage the history
+Repository : a database that contains information to manage the history
  of a project. There two structures of a git repository. 
 1. Index : which is a binary file and
 2. obejct store :  which is a directory. The object store  contains 
 four objects : Blobs, trees, commits, tags.
 
-Blobs : each version of a file is represented as a blob. Blobs are only
+<> Blobs : each version of a file is represented as a blob. Blobs are only
 referenced by the trees and references nothing. I.e blobs are at the bottom
 of the data stracture in a git repo. 
-Trees : contain some metadata as blob identifier,
+
+<> Trees : contain some metadata as blob identifier,
 pathnames etc. In this way an hierarchy of files and subdirectories is built.
 Trees, point to other trees or to blobs.
-Commits : ia an object that holds metadata for each change into a repository. 
+
+<> Commits : ia an object that holds metadata for each change into a repository. 
 It holds the author name, commit date, log message and others.
 Tag : this is the hash of an object, usually a commit. Tags point to
 commit(s).
 
-Index : is a binary file that describes the structure of the repository.
+<> Index : is a binary file that describes the structure of the repository.
 
 -- Git commands --
 
