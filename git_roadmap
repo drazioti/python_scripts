@@ -180,3 +180,5 @@ $git checkout bug
 the same, but
 $git fetch origin pull/46/head:bug
 and you can review the bug.
+if you want to update
+$git fetch origin pull/46/head:bug --update-head-ok 
