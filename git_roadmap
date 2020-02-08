@@ -64,7 +64,7 @@ then, the file becomes a part of the working directory and your are now one comm
 To update the remote repo 
 $git push
 If you don't give $git push and instead give
-$chekout filename
+$git checkout filename
 then, all the changes will be lost.
 
 In case you want to create and checkout to a new branch then
@@ -177,6 +177,7 @@ $git fetch upstream pull/46/head:bug
 $git checkout bug
 
 === Review a Pull request from the origin ===
+
 the same, but
 $git fetch origin pull/46/head:bug
 and you can review the bug.
