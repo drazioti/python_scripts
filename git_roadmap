@@ -163,6 +163,16 @@ $git stash save --keep-index
 
 This will remove all local changes from your working copy
 
+Another solution is 
+
+$git reset --hard
+
+which will remove all you local changes but it will not change branch.
+This is a good soloution if you use many times 
+$git fetch origin pull/46/head:bug --update-head-ok 
+and also make local changes to your files
+
+
 === If you want to change the commit message of a previous commit ===
 
 see https://help.github.com/en/github/committing-changes-to-your-project/changing-a-commit-message
