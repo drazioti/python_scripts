@@ -26,7 +26,7 @@ commit(s).
 
 <> Index : is a binary file that describes the structure of the repository.
 
--- Git commands --
+-- basic Git commands --
 
 $git help or $git help --all|less
 $git --version
@@ -85,6 +85,15 @@ master branch you have to do
 $git checkout master  
 $git merge foo
 
+Contents
+---------
+/ Syncing your local fork with the main repo
+/ Go back to the previous commit
+/ If you want to delete a remote branch
+/ If by a mistake you made git pull 
+/ If after pull request you get, error: Your local changes to the following files would be overwritten by merge:..
+/ Develpoment, using a branch
+ 
 === Syncing your local fork with the main repo ===
 
 First configure a remote for your fork:
@@ -140,7 +149,7 @@ $nano [conflict file]
 solve conflicts by removing <,=,> markers
 $git rebase continue
 
-=== If you want to delete a remote branch
+=== If you want to delete a remote branch ===
 
 $git push <remote_name> --delete <branch_name>
 Usually <remote_name> is origin
