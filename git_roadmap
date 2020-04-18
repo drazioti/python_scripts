@@ -177,9 +177,11 @@ Another solution is
 $git reset --hard
 
 which will remove all you local changes but it will not change branch.
-This is a good soloution if you use many times 
+This is a good solution if you use many times 
+
 $git fetch origin pull/46/head:bug --update-head-ok 
-and also make local changes to your files
+
+and in parallel you make local changes to your files.
 
 
 === If you want to change the commit message of a previous commit ===
@@ -202,8 +204,13 @@ $git checkout bug
 the same, but
 $git fetch origin pull/46/head:bug
 and you can review the bug.
-if you want to update
+If changes were made and you want to update
+
 $git fetch origin pull/46/head:bug --update-head-ok 
+
+=== Review a specific commit from the origin ===
+
+$git checkout -b branch_name hash_of_the_commit
 
 === Go back to the previous commit ===
 
