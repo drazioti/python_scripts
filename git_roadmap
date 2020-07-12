@@ -93,6 +93,7 @@ Contents
 / If by a mistake you made git pull 
 / If after pull request you get, error: Your local changes to the following files would be overwritten by merge:..
 / Develpoment, using a branch
+/ git pull does not update my files locally
  
 === Syncing your local fork with the main repo ===
 
@@ -216,3 +217,8 @@ $git checkout -b branch_name hash_of_the_commit
 
 $git reset HEAD^ --hard
 $git push -f
+
+=== git pull does not update my files locally ===
+try the following
+$git fetch --all
+$git reset --hard origin/master
