@@ -26,6 +26,8 @@ commit(s).
 
 <> Index : is a binary file that describes the structure of the repository.
 
+<> HEAD is simply a reference to the current commit (latest) on the current branch.
+
 -- basic Git commands --
 
 $git help or $git help --all|less
@@ -122,9 +124,9 @@ to delete the upstream
 $git remote rm upstream
 
 
-=== Go back to the previous commit
+=== Go back to the previous commit ===
 
-Say that your commit has hash H (using git status), then 
+Say that your commit has hash H (using git status you cna find the hash), then 
 $git checkout H -b foo
 
 will make a new branch "foo" and move the HEAD to commit with hash H.
