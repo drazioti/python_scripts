@@ -92,8 +92,8 @@ Contents
 / If you want to delete a remote branch
 / If by a mistake you made git pull 
 / If after pull request you get, error: Your local changes to the following files would be overwritten by merge:..
-/ Develpoment, using a branch
 / git pull does not update my files locally
+/ Develpoment, using a branch
  
 === Syncing your local fork with the main repo ===
 
@@ -121,34 +121,13 @@ to delete the upstream
 
 $git remote rm upstream
 
-=== Develpoment, using a branch ===
-Create a new local branch say "mybranch" to your fork.
 
-$git checkout -b mybranch
+=== Go back to the previous commit
 
-Then add/make the changes you want.
-Push the branch to your (remote) fork
+Say that your commit has hash H (using git status), then 
+$git checkout H -b foo
 
-$git add .
-$git commit -m "sthm"
-$git push --set-upstream origin mybranch
-$git checkout master
-$git add .
-$git commit -m "."
-$git push
-
-If while editing files in your branch 'mybranch'
-another user changed something in the remote master branch 
-do the following.
-
-$git checkout master
-$git fetch upstream
-$git merge upstream/master
-$git checkout mybranch
-$git rebase origin/master
-$nano [conflict file]
-solve conflicts by removing <,=,> markers
-$git rebase continue
+will make a new branch "foo" and move the HEAD to commit with hash H.
 
 === If you want to delete a remote branch ===
 
@@ -219,6 +198,38 @@ $git reset HEAD^ --hard
 $git push -f
 
 === git pull does not update my files locally ===
-try the following
+
+try the following :
+
 $git fetch --all
 $git reset --hard origin/master
+
+
+=== Develpoment, using a branch ===
+Create a new local branch say "mybranch" to your fork.
+
+$git checkout -b mybranch
+
+Then add/make the changes you want.
+Push the branch to your (remote) fork
+
+$git add .
+$git commit -m "sthm"
+$git push --set-upstream origin mybranch
+$git checkout master
+$git add .
+$git commit -m "."
+$git push
+
+If while editing files in your branch 'mybranch'
+another user changed something in the remote master branch 
+do the following.
+
+$git checkout master
+$git fetch upstream
+$git merge upstream/master
+$git checkout mybranch
+$git rebase origin/master
+$nano [conflict file]
+solve conflicts by removing <,=,> markers
+$git rebase continue
