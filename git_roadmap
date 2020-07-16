@@ -131,10 +131,12 @@ $git checkout H -b foo
 
 will make a new branch "foo" and move the HEAD to commit with hash H.
 
-=== If you want to delete a remote branch ===
+=== If you want to delete a local/remote branch ===
 
 $git push <remote_name> --delete <branch_name>
 Usually <remote_name> is origin
+or delete a local branch
+$git branch -D <branch name>
 
 === If by a mistake you made $git pull === 
 
