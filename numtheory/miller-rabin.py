@@ -7,6 +7,14 @@ We need gmpy2 library. Tested in python 2.
 >>>miller_rabin(2**1024-1,8)
 >>>'composite'
 
+#*****************************************************************************
+#       Copyright (C) K.Draziotis <drazioti@gmail.com>,
+#                         
+#  Distributed under the terms of the GNU General Public License (GPL)
+#  as published by the Free Software Foundation; either version 2 of
+#  the License, or (at your option) any later version.
+#                  http://www.gnu.org/licenses/
+#*****************************************************************************
 '''
 
 
