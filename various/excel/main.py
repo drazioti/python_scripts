@@ -17,6 +17,7 @@ B = []
 
 SKIPROWS = 1    # depends on the format of the file A.xlsx : input path (the header does not count)
 NROWS    = 394  # TODO : equals to : [number of grades] - [SKIPROWS+1]
+
 first  = pd.read_excel(input_path,skiprows=SKIPROWS,nrows=NROWS,usecols='A:B',index_col=None)
 second = pd.read_excel(output_path,index_col=None)
 
