@@ -15,8 +15,8 @@ pd.set_option('display.precision',25)
 
 
 counter = 0 # counts the number of grades successfully passed to the second excel
-input_path  = 'NCO-02-01-Τελικές Εξετάσεις στην Ανάλυση ΙΙ-βαθμοί.xlsx'
-output_path ='courseExam_NCO-02-01_2019-2020_06_ΙΟΥΝΙΟΣ_600198561.xls'
+input_path  = 'A.xlsx'
+output_path = 'B.xls'
 
 A = []
 B = []
