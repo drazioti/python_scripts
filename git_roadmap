@@ -89,16 +89,21 @@ $git merge foo
 
 Contents
 ---------
-/ Syncing your local fork with the main repo
-/ Go back to the previous commit
-/ If you want to delete a remote branch
-/ If by a mistake you made git pull 
-/ If after pull request you get, error: Your local changes to the following files would be overwritten by merge:..
-/ git pull does not update my files locally
-/ Develpoment, using a branch
-/ rename a local branch
+1. Syncing your local fork with the main repo
+2. Go back to the previous commit
+3. If you want to delete a remote branch
+4. If by a mistake you made git pull 
+5. If after pull request you get, error: Your local changes to the following files would be overwritten by merge:..
+6. If you want to change the commit message of a previous commit
+7. Review a Pull request of the upstream repository
+8. Review a Pull request from the origin 
+9. Review a specific commit from the origin
+10. Go back to the previous commit
+11. git pull does not update my files locally
+12. Develpoment, using a branch
+13. rename a local branch
  
-=== Syncing your local fork with the main repo ===
+=== 1.Syncing your local fork with the main repo ===
 
 First configure a remote for your fork:
 
@@ -125,21 +130,21 @@ to delete the upstream
 $git remote rm upstream
 
 
-=== Go back to the previous commit ===
+=== 2.Go back to the previous commit ===
 
 Say that your commit has hash H (using git status you cna find the hash), then 
 $git checkout H -b foo
 
 will make a new branch "foo" and move the HEAD to commit with hash H.
 
-=== If you want to delete a local/remote branch ===
+=== 3.If you want to delete a local/remote branch ===
 
 $git push <remote_name> --delete <branch_name>
 Usually <remote_name> is origin
 or delete a local branch
 $git branch -D <branch name>
 
-=== If by a mistake you made $git pull === 
+=== 4.If by a mistake you made $git pull === 
 
 Say you want to go back to the previous state, give
 $git revert HEAD #this will not rewrite history
@@ -151,7 +156,7 @@ $git reset --hard db2b8f5       # this will rewrite history
 $git push -f origin master      # this will sync the remote repo (origin master) with your local (master) i.e.
 				# the remote repo will go back to the previous commit with fingerprint : db2b8f5 
 
-=== if after pull request you get, error: Your local changes to the following files would be overwritten by merge:..
+=== 5.if after pull request you get, error: Your local changes to the following files would be overwritten by merge:..
 
 $git stash save --keep-index
 
@@ -169,11 +174,11 @@ $git fetch origin pull/46/head:bug --update-head-ok
 and in parallel you make local changes to your files.
 
 
-=== If you want to change the commit message of a previous commit ===
+=== 6.If you want to change the commit message of a previous commit ===
 
 see https://help.github.com/en/github/committing-changes-to-your-project/changing-a-commit-message
 
-=== Review a Pull request of the upstream repository ===
+=== 7.Review a Pull request of the upstream repository ===
 
 $git status
 
@@ -184,7 +189,7 @@ say you want to review the pull request
 $git fetch upstream pull/46/head:bug
 $git checkout bug
 
-=== Review a Pull request from the origin ===
+=== 8.Review a Pull request from the origin ===
 
 the same, but
 $git fetch origin pull/46/head:bug
@@ -193,16 +198,16 @@ If changes were made and you want to update
 
 $git fetch origin pull/46/head:bug --update-head-ok 
 
-=== Review a specific commit from the origin ===
+=== 9.Review a specific commit from the origin ===
 
 $git checkout -b branch_name hash_of_the_commit
 
-=== Go back to the previous commit ===
+=== 10.Go back to the previous commit ===
 
 $git reset HEAD^ --hard
 $git push -f
 
-=== git pull does not update my files locally ===
+=== 11.git pull does not update my files locally ===
 
 try the following :
 
@@ -210,7 +215,7 @@ $git fetch --all
 $git reset --hard origin/master
 
 
-=== Develpoment, using a branch ===
+=== 12.Develpoment, using a branch ===
 Create a new local branch say "mybranch" to your fork.
 
 $git checkout -b mybranch
@@ -239,6 +244,6 @@ $nano [conflict file]
 solve conflicts by removing <,=,> markers
 $git rebase continue
 
-=== Rename a local branch
+=== 13.Rename a local branch
 
 $git branch -m <old name> <new name>
