@@ -103,6 +103,7 @@ Contents
 12. Develpoment, using a branch
 13. rename a local branch
 14. diff of two files
+15. clone a specific branch of a repository
  
 === 1.Syncing your local fork with the main repo ===
 
@@ -256,4 +257,9 @@ all the differences of the foo file as is in the repository and with the new
 updated foo.
 
 $git diff HEAD:foo foo
+
+=== 15. clone a specific branch of a repository
+
+$git clone --single-branch --branch <branchname> <remote-repo>
+
 
