@@ -266,12 +266,28 @@ $git clone --single-branch --branch <branchname> <remote-repo>
 
 === 16. Merge two branches
 
+Say you have only branch1 locally. In origin you have another branch say branch2.
+You want to merge branch2 to branch1.
+
+In the cuurent sate you have
+
+$git branch
+*branch1
+
+First you have to give,
+
 $git fetch origin <rbranch>:<lbranch>
 
-rbranch : name of the remote branch
-lbranch : name for the local branch
+rbranch : name of the remote branch, i.e. branch2
+lbranch : name for the local branch, again branch2
 
-Now you have also the branch lbranch.
+Now you have also the branch2 
+I.e.
+
+$git branch
+*branch1
+branch2
+
 Then you can merge.
 
 === 17. Merge specific files from one branche to another
@@ -283,6 +299,3 @@ $git checkout --patch branch1 foo.txt
 and give y to the question.
 
 The add/commit/push.
-
-
-$git 
