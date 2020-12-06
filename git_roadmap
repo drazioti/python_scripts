@@ -106,6 +106,7 @@ Contents
 15. clone a specific branch of a repository
 16. Merge two branches
 17. Merge specific files from one branche to another
+18. Compare two files from different branches
  
 === 1.Syncing your local fork with the main repo ===
 
@@ -299,3 +300,11 @@ $git checkout --patch branch1 foo.txt
 and give y to the question.
 
 The add/commit/push.
+
+=== 18. Compare two files from different branches
+
+$git diff branch1 branch2 foo.txt
+
+base file is foo.txt in branch2
+
+ 
