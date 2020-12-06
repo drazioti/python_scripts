@@ -104,6 +104,7 @@ Contents
 13. rename a local branch
 14. diff of two files
 15. clone a specific branch of a repository
+16. merge two branches
  
 === 1.Syncing your local fork with the main repo ===
 
@@ -262,4 +263,11 @@ $git diff HEAD:foo foo
 
 $git clone --single-branch --branch <branchname> <remote-repo>
 
+=== Merge two branches
 
+$git fetch origin <rbranch>:<lbranch>
+
+rbranch : name of the remote branch
+lbranch : name for the local branch
+
+Now you have also the branch lbranch.
