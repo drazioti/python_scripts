@@ -104,7 +104,8 @@ Contents
 13. rename a local branch
 14. diff of two files
 15. clone a specific branch of a repository
-16. merge two branches
+16. Merge two branches
+17. Merge specific files from one branche to another
  
 === 1.Syncing your local fork with the main repo ===
 
@@ -263,7 +264,7 @@ $git diff HEAD:foo foo
 
 $git clone --single-branch --branch <branchname> <remote-repo>
 
-=== Merge two branches
+=== 16. Merge two branches
 
 $git fetch origin <rbranch>:<lbranch>
 
@@ -271,3 +272,17 @@ rbranch : name of the remote branch
 lbranch : name for the local branch
 
 Now you have also the branch lbranch.
+Then you can merge.
+
+=== 17. Merge specific files from one branche to another
+
+Say you have branch1 and branch2 and you are in branch2.
+There is a file foo.txt in branch1. To merge this file into branch2 you have to give
+
+$git checkout --patch branch1 foo.txt
+and give y to the question.
+
+The add/commit/push.
+
+
+$git 
