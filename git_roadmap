@@ -102,15 +102,12 @@ Contents
 11. git pull does not update my files locally
 12. Develpoment, using a branch
 13. rename a local branch
-<<<<<<< Updated upstream
 14. diff of two files
 15. clone a specific branch of a repository
 16. Merge two branches
 17. Merge specific files from one branche to another
 18. Compare two files from different branches
-=======
-14. a better git log
->>>>>>> Stashed changes
+19. a better git log
  
 === 1.Syncing your local fork with the main repo ===
 
@@ -315,7 +312,7 @@ base file is foo.txt in branch2
  
 =======
 
-=== 14. beter git log
+=== 19. better git log
 
 $git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 (see https://coderwall.com/p/euwpig/a-better-git-log)
