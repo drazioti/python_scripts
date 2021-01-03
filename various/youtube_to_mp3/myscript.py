@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 import sys
-sys.path.insert(0,'/path/to/youtube-dl')
+sys.path.insert(0,'/home/draz/Documents/youtube-dl-1/')
 import youtube_dl
 
 class MyLogger(object):

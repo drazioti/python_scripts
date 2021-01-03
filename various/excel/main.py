@@ -4,13 +4,32 @@
 # dependencies : 
 # pip3 install xlrd
 
+'''
+Example
+
+You have to hardcode the paths of the excel files. Here we denote them as A.xlsx and B.xls
+Also you have to hardcode NROWS.
+
+$python3 main.py
+In practice: 
+1. Download the grade file from the old sis, say B.xlsx
+2. sort with respect to aem and save it.
+3. Save with the name B_.xlsx
+4. set input the file from elearning
+5. set output the file B_.xlsx
+6. run python3 main.py
+7. get the column 'βαθμός' from B_.xlsx
+8. paste it to the column 'βαθμός' of B.xlsx
+9. end
+'''
+
 import pandas as pd
 import xlsxwriter
 from pandas_ods_reader import read_ods
 
-counter = 0 # counts the number of grades successfully passed to the second excel
-input_path  = 'A.xlsx'
-output_path = 'B.xls'
+counter = 0    # counts the number of grades successfully passed to the second excel
+input_path  = 'NCO-02-01-Τελικές Εξετάσεις στην Ανάλυση ΙΙ-βαθμοί.xlsx'
+output_path = 'courseExam_NCO-02-01_2019-2020_06_ΙΟΥΝΙΟΣ_600198561.xls'
 
 A = []
 B = []

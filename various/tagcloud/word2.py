@@ -17,14 +17,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-x, y = np.ogrid[:300, :300]
-mask = (x - 150) ** 2 + (y - 150) ** 2 >130 ** 2
+x, y = np.ogrid[:350, :350]
+mask = 4*(x - 160) ** 2 +  (y - 160) ** 2 >160 ** 2
 mask = 255 * mask.astype(int)
 curdir = os.path.dirname(__file__)
 
 def create_wordcloud(text):
     stopwords = set(STOPWORDS)
-    wc = WordCloud(background_color="white",max_words=200,
+    wc = WordCloud(background_color="red",max_words=200,
                    stopwords=stopwords, mask=mask, repeat =True)
     wc.generate(text)
     wc.to_file(os.path.join(curdir,"wc2.png"))
@@ -36,6 +36,8 @@ text = "blockchain, blockchain,distributedledger,\
         MerkleTree,MerkleTree,\
         snakeoil,cryptography,ByzantineFaultTolerance,\
         smartcontracts"
+
+#text = "ειδικήαγωγή ADHD Aspergers μάθηση αυτισμός "
 create_wordcloud(text)
 
 #wc = WordCloud(background_color="white", repeat=True, mask=mask)
