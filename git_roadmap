@@ -105,7 +105,7 @@ Contents
 14. diff of two files
 15. clone a specific branch of a repository
 16. Merge two branches
-17. Merge specific files from one branche to another
+17. Merge specific files from one branch to another
 18. Compare two files from different branches
 19. a better git log
  
@@ -254,12 +254,11 @@ $git rebase continue
 
 $git branch -m <old name> <new name>
 
-<<<<<<< Updated upstream
 === 14.diff of two files
 
-Say you made some changes of foo file in some branch. You want to see
-all the differences of the foo file as is in the repository and with the new
-updated foo.
+Say you made some changes of 'foo' file in some branch. You want to see
+all the differences of the 'foo' file as is in the repository and with the new
+updated 'foo'.
 
 $git diff HEAD:foo foo
 
@@ -272,7 +271,7 @@ $git clone --single-branch --branch <branchname> <remote-repo>
 Say you have only branch1 locally. In origin you have another branch say branch2.
 You want to merge branch2 to branch1.
 
-In the cuurent sate you have
+In the cuurent state you have :
 
 $git branch
 *branch1
@@ -293,7 +292,7 @@ branch2
 
 Then you can merge.
 
-=== 17. Merge specific files from one branche to another
+=== 17. Merge specific files from one branch to another
 
 Say you have branch1 and branch2 and you are in branch2.
 There is a file foo.txt in branch1. To merge this file into branch2 you have to give
@@ -309,13 +308,11 @@ $git diff branch1 branch2 foo.txt
 
 base file is foo.txt in branch2
 
- 
-=======
 
 === 19. better git log
 
 $git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
 (see https://coderwall.com/p/euwpig/a-better-git-log)
 
-now you can use $git lg
-
+Now you can use $git lg
