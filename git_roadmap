@@ -120,7 +120,8 @@ Then sync your fork with the upstream:
 
 $git checkout master
 $git fetch upstream
-$git merge upstream/master
+$git merge upstream/master 
+(or git merge upstream/main)
 
 so now you have:
 
