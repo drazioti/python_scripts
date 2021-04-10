@@ -277,21 +277,22 @@ In the cuurent state you have :
 $git branch
 *branch1
 
-First you have to give,
+First give
 
 $git fetch origin <rbranch>:<lbranch>
 
 rbranch : name of the remote branch, i.e. branch2
 lbranch : name for the local branch, again branch2
 
-Now you have also the branch2 
+Now you also have the branch2 
+
 I.e.
 
 $git branch
 *branch1
 branch2
 
-Then you can merge.
+Finally, you are ready to merge.
 
 === 17. Merge specific files from one branch to another
 
@@ -299,9 +300,9 @@ Say you have branch1 and branch2 and you are in branch2.
 There is a file foo.txt in branch1. To merge this file into branch2 you have to give
 
 $git checkout --patch branch1 foo.txt
-and give y to the question.
+and answer [y] to the question.
 
-The add/commit/push.
+Then, add/commit/push.
 
 === 18. Compare two files from different branches
 
