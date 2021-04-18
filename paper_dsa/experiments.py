@@ -13,7 +13,7 @@ sage:number_of_instances = 2000
 sage:mean([samples(ell,number_of_desired_signatures) for i in range(number_of_instances)])
 1791.20300000000 # this is the average
 
-The followinf experiment shows that, for denser primes q, i.e. having more significant bits, we more often have derive ephemeral keys with 160-bits
+The following experiment shows that, for denser primes q, i.e. having more significant bits, we more often get derive ephemeral keys with exactly 160-bits
 
 sage:ell = 160
 sage:V = 30000 # number of instances
