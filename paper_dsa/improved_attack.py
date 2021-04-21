@@ -132,7 +132,7 @@ def equivalences_dsa_new_3(n,q,flag,parameter):
      decides in polynomial time if q-yi or q-a has 159 bits or not and a length oracle. According to the output
      of the oracle we modify the system. If q-yi has <159 bits the we add and subtruct 2^(158).
      So the final DSA system has always a solution with all the entries 159-bits (except maybe the first entry),
-     and our attack is feasible with a large probability (approx. 93%) having 205 signatures. 
+     and our attack is feasible with a large probability (approx. 93%) having 204 signatures. 
         
         Input
         -----
