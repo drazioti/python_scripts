@@ -320,7 +320,9 @@ $git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Cres
 
 Now you can use $git lg
 
-20. After you've added your ssh key to github, accessing github from console, will continue to ask for username/password.
+=== 20. ssh and github
+
+After you've added your ssh key to github, accessing github from console, will continue to ask for username/password.
 Go to your repo that you want to access with ssh and give
 
 $git remote set-url origin git@github.com:github_username/repository_name
