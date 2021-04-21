@@ -108,6 +108,7 @@ Contents
 17. Merge specific files from one branch to another
 18. Compare two files from different branches
 19. a better git log
+20. ssh and github
  
 === 1.Syncing your local fork with the main repo ===
 
@@ -318,3 +319,12 @@ $git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Cres
 (see https://coderwall.com/p/euwpig/a-better-git-log)
 
 Now you can use $git lg
+
+20. After you've added you ssh key to github, accessing github from console, will continued to as for username/password.
+Go to your repo that you want to access with ssh and give
+$git remote set-url origin git@github.com:github_username/repository_name
+
+Also, every time you restrt your pc, give
+$eval "$(ssh-agent -s)"
+$ssh-add ~/.ssh/id_ed25519 % assuming you generated keys based on Edwards elliptic curve
+
