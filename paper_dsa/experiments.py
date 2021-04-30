@@ -108,7 +108,7 @@ def count_all(lst):
     
 def distribution(ell,count,q):
     B = []
-    for i in range(count): # count is th number of instances
+    for i in range(count): # count is the number of instances
         multiplier = int(ZZ.random_element(q));
         ephemeral_key = r(q,ell)
         mult = int(mod(ephemeral_key * multiplier,q))
