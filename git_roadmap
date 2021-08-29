@@ -215,8 +215,8 @@ $git checkout -b branch_name hash_of_the_commit
 
 Say that you delete (with rm) a file or files from your local repo and want to update the remote repo.
 
-$commit -a -m "A file was deleted"
-$push
+$git commit -a -m "A file was deleted"
+$git push
 
 === 11.Go back to the previous commit ===
 
