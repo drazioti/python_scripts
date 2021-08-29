@@ -98,17 +98,18 @@ Contents
 7. Review a Pull request of the upstream repository
 8. Review a Pull request from the origin 
 9. Review a specific commit from the origin
-10. Go back to the previous commit
-11. git pull does not update my files locally
-12. Develpoment, using a branch
-13. rename a local branch
-14. diff of two files
-15. clone a specific branch of a repository
-16. Merge two branches
-17. Merge specific files from one branch to another
-18. Compare two files from different branches
-19. a better git log
-20. ssh and github
+10. Delete a file from remote repo
+11. Go back to the previous commit
+12. git pull does not update my files locally
+13. Develpoment, using a branch
+14. rename a local branch
+15. diff of two files
+16. clone a specific branch of a repository
+17. Merge two branches
+18. Merge specific files from one branch to another
+19. Compare two files from different branches
+20. a better git log
+21. ssh and github
  
 === 1.Syncing your local fork with the main repo ===
 
@@ -210,12 +211,19 @@ $git fetch origin pull/46/head:bug --update-head-ok
 
 $git checkout -b branch_name hash_of_the_commit
 
-=== 10.Go back to the previous commit ===
+=== 10.Delete a file from remote repo ===
+
+Say that you delete (with rm) a file or files from your local repo and want to update the remote repo.
+
+$commit -a -m "A file was deleted"
+$push
+
+=== 11.Go back to the previous commit ===
 
 $git reset HEAD^ --hard
 $git push -f
 
-=== 11.git pull does not update my files locally ===
+=== 12.git pull does not update my files locally ===
 
 try the following :
 
@@ -223,7 +231,7 @@ $git fetch --all
 $git reset --hard origin/master
 
 
-=== 12.Develpoment, using a branch ===
+=== 13.Develpoment, using a branch ===
 Create a new local branch say "mybranch" to your fork.
 
 $git checkout -b mybranch
@@ -252,11 +260,11 @@ $nano [conflict file]
 solve conflicts by removing <,=,> markers
 $git rebase continue
 
-=== 13.Rename a local branch
+=== 14.Rename a local branch
 
 $git branch -m <old name> <new name>
 
-=== 14.diff of two files
+=== 15.diff of two files
 
 Say you made some changes of 'foo' file in some branch. You want to see
 all the differences of the 'foo' file as is in the repository and with the new
@@ -264,11 +272,11 @@ updated 'foo'.
 
 $git diff HEAD:foo foo
 
-=== 15. clone a specific branch of a repository
+=== 16. clone a specific branch of a repository
 
 $git clone --single-branch --branch <branchname> <remote-repo>
 
-=== 16. Merge two branches
+=== 17. Merge two branches
 
 Say you have only branch1 locally. In origin you have another branch say branch2.
 You want to merge branch2 to branch1.
@@ -295,7 +303,7 @@ branch2
 
 Finally, you are ready to merge.
 
-=== 17. Merge specific files from one branch to another
+=== 18. Merge specific files from one branch to another
 
 Say you have branch1 and branch2 and you are in branch2.
 There is a file foo.txt in branch1. To merge this file into branch2 you have to give
@@ -305,14 +313,14 @@ and answer [y] to the question.
 
 Then, add/commit/push.
 
-=== 18. Compare two files from different branches
+=== 19. Compare two files from different branches
 
 $git diff branch1 branch2 foo.txt
 
 base file is foo.txt in branch2
 
 
-=== 19. better git log
+=== 20. better git log
 
 $git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
@@ -320,7 +328,7 @@ $git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Cres
 
 Now you can use $git lg
 
-=== 20. ssh and github
+=== 21. ssh and github
 
 After you've added your ssh key to github, accessing github from console, will continue to ask for username/password.
 Go to your repo that you want to access with ssh and give
