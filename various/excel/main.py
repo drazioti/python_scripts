@@ -13,10 +13,10 @@ Also you have to hardcode NROWS.
 
 $python3 main.py
 In practice: 
-1. Download the grade file from the old sis, say B.xlsx
+1. Download the grade file from the old sis, say B.xls
 2. sort with respect to aem and save it (for easy crosscheck).
-3. Save it with the name B_.xlsx
-4. [hardcode in the code] Set as 'input' the file from elearning
+3. Save it with the name B_.xls
+4. [hardcode in the code] Set as 'input' the file from elearning [First column aem and second column grades]
 5. set as 'output' the file B_.xlsx
 6. run python3 main.py
 7. copy the column 'βαθμός' from B_.xlsx
@@ -30,8 +30,8 @@ from pandas_ods_reader import read_ods
 import numpy as np
 
 counter = 0    # counts the number of grades successfully passed, to the second excel
-input_path  = 'grades2.xlsx'
-output_path = 'courseExam_NCO-02-01_2020-2021_06_ΙΟΥΝΙΟΣ_600235013_.xls'
+input_path  = 'grades.xlsx' # the file from elearning
+output_path = 'B_.xls'      # the official grade sheet 
 
 A = []
 B = []
