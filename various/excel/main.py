@@ -30,7 +30,7 @@ from pandas_ods_reader import read_ods
 import numpy as np
 
 counter = 0    # counts the number of grades successfully passed, to the second excel
-input_path  = 'grades.xlsx' # the file from elearning
+input_path  = 'A.xlsx' # the file from elearning
 output_path = 'B_.xls'      # the official grade sheet 
 
 A = []
