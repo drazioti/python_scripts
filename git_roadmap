@@ -111,6 +111,7 @@ Contents
 20. mv a file between two branches
 21. a better git log
 22. ssh and github
+23. If you get a message : this branch is 1 commit behind the upstream and has conflicts that must be resolved
  
 === 1.Syncing your local fork with the main repo ===
 
@@ -320,7 +321,7 @@ $git diff branch1 branch2 foo.txt
 
 base file is foo.txt in branch2
 
-=== 20. better git log
+=== 20. mv a file between two branches
 
 You are in branch2 and there is a file in branch1, say foo.txt. 
 You want to copy foo.txt in branch2.
@@ -346,3 +347,14 @@ Also, every time you restart your pc, give
 
 $eval "$(ssh-agent -s)"
 $ssh-add ~/.ssh/id_ed25519 % assuming you generated keys based on Edwards elliptic curve
+
+=== 23. If you get a message : this branch is 1 commit behind the upstream and has conflicts that must be resolved
+
+sync your fork (branch : main)  with the original repository (upstream).
+ 
+$git pull --rebase upstream main
+$git add .
+$git commit -m "."
+$git push
+
+
