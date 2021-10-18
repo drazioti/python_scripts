@@ -108,8 +108,9 @@ Contents
 17. Merge two branches
 18. Merge specific files from one branch to another
 19. Compare two files from different branches
-20. a better git log
-21. ssh and github
+20. mv a file between two branches
+21. a better git log
+22. ssh and github
  
 === 1.Syncing your local fork with the main repo ===
 
@@ -319,8 +320,14 @@ $git diff branch1 branch2 foo.txt
 
 base file is foo.txt in branch2
 
-
 === 20. better git log
+
+You are in branch2 and there is a file in branch1, say foo.txt. 
+You want to copy foo.txt in branch2.
+
+$git checkout branch2 foo.txt
+
+=== 21. better git log
 
 $git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
@@ -328,7 +335,7 @@ $git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Cres
 
 Now you can use $git lg
 
-=== 21. ssh and github
+=== 22. ssh and github
 
 After you've added your ssh key to github, accessing github from console, will continue to ask for username/password.
 Go to your repo that you want to access with ssh and give
