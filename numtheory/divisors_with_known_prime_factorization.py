@@ -9,8 +9,8 @@ def find_divisors_from_primes(r,H):
     Then this function will return all the positive divisors of
     N, exploiting that we know all the primes dividing N. 
     e.g.
-    r = [2,3,5,7]
-    H = [2,1,1,1]
+    r = [2,3,5,7] #primes
+    H = [2,1,1,1] #exponents
     C=find_divisors_from_primes(r,H)
     print C
 
