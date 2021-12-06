@@ -12,7 +12,7 @@ def find_divisors_from_primes(r,H):
     r = [2,3,5,7] #primes
     H = [2,1,1,1] #exponents
     C=find_divisors_from_primes(r,H)
-    print C
+    print(C)
 
     [1, 2, 3, 4, 5, 6, 7, 10, 12, 14, 15, 20, 21, 28, 30, 35, 42, 60, 70, 84, 105, 140, 210, 420]
 
