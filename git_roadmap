@@ -112,6 +112,7 @@ Contents
 21. a better git log
 22. ssh and github
 23. If you get a message : this branch is 1 commit behind the upstream and has conflicts that must be resolved
+24. Remove a remote file that is in .gitignore
  
 === 1.Syncing your local fork with the main repo ===
 
@@ -355,6 +356,14 @@ sync your fork (branch : main)  with the original repository (upstream).
 $git pull --rebase upstream main
 $git add .
 $git commit -m "."
+$git push
+
+=== 24. Remove a remote file that is in .gitignore
+
+say you want to remobe .ipynb_checkpoints/ from remote repo
+ 
+$git rm -r --cached .ipynb_checkpoints/
+$git rm -r --cached .ipynb_checkpoints/ [without git add]
 $git push
 
 
