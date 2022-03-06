@@ -167,6 +167,8 @@ then,
 $git reset --hard db2b8f5       # this will rewrite history
 $git push -f origin master      # this will sync the remote repo (origin master) with your local (master) i.e.
 				# the remote repo will go back to the previous commit with fingerprint : db2b8f5 
+or
+$git push -f origin main
 
 === 5.if after pull request you get, error: Your local changes to the following files would be overwritten by merge:..
 
