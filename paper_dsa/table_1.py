@@ -1,7 +1,7 @@
 ''' 
 Requirements : The code is written in Sagemath ver. 8.1
   
- AUTHORS: Marios Adamoudis 
+ AUTHORS: Marios Adamoudis (marios.p7@hotmail.com)
           2019: initial version 
  REFERENCES:  http://www.sagemath.org/
  * Please report bugs *
