@@ -10,9 +10,9 @@ def find_divisors_from_primes(r,H):
     N, exploiting that we know all the primes dividing N. 
     e.g.
     # say N = 2^2*3*5*7
-    r = [2,3,5,7] #primes
-    H = [2,1,1,1] #exponents
-    C=find_divisors_from_primes(r,H)
+    P = [2,3,5,7] #primes
+    E = [2,1,1,1] #exponents
+    C=find_divisors_from_primes(P,E)
     print(C)
 
     [1, 2, 3, 4, 5, 6, 7, 10, 12, 14, 15, 20, 21, 28, 30, 35, 42, 60, 70, 84, 105, 140, 210, 420]
