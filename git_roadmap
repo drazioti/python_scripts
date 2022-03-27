@@ -28,6 +28,14 @@ commit(s).
 
 <> HEAD is simply a reference to the current commit (latest) on the current branch.
 
+--- States of a files ---
+Untracked       : The file is just created. Git sees a file you didn’t have in the previous commit.
+Staged/Unstaged : If you give "git add" to an untracked file the the new status of the file is Staged. If you give "git reset <file>" you go back to
+the previous state.
+Modified        : 
+commited        :
+
+
 -- basic Git commands --
 
 $git help or $git help --all|less
