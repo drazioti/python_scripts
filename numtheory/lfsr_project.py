@@ -9,7 +9,7 @@
  and a feedback function. It accepts a third argument which counts the number of the keystream bits. 
  Furthermore, if the fourth argument is 0 prints the interior states of the lfsr, else only the keystream is printed.
  
->lfsr([1,1,1,0],[0,0,1,1],15,0) #here the feedback polynomial is x^4+x^3+1
+>lfsr([1,1,1,0],[0,0,1,1],15,0) #the seed is the first input : [1,1,1,0]. The feedback polynomial is x^4+x^3+1
  	initial seed : deque([1, 1, 1, 0])
 	state 1 of the lfsr : deque([1, 1, 1, 1])
 	state 2 of the lfsr : deque([0, 1, 1, 1])
