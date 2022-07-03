@@ -1,4 +1,13 @@
+'''
+sumOfDiv(10**15)
+499961853010960
+
+'''
+
 def find_s_t(n):
+    '''
+    we compute the order_2 of n i.e. we compute s such that n = 2**s * m, for some odd m.
+    '''
     i = 1
     isint = 0
     while isint == 0:
