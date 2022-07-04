@@ -29,8 +29,8 @@ def miller_rabin(n,k):
     
 
     def find_s_t(n):
+        # here we have to compute the order_2 of n-1. That is an integer s : n-1=2^s * k, for some k odd 
         n = mpz(n)
-        # here we have to compute the order_2 of n
         i = mpz(1)
         isint = 0
         while isint == 0:
