@@ -12,12 +12,12 @@
 '''
 Example
 
-You have to hardcode the paths of the xlsx files. Here we denote them as A.xlsx and B.xls
+You have to hardcode the paths of the xlsx files. Here we denote them as A.xlsx and B.xlsx
 
 $python3 main.py
 
 In practice: 
-1. Download the grade file from the old sis, say B.xlsx
+1. Download the grade file from the sis, say B.xlsx
 2. sort with respect to aem and save it.
 3. Save with the name B_.xlsx
 4. set input the file from *elearning*
@@ -44,8 +44,8 @@ def checkIfDuplicates(listOfElems):
 
 
 counter = 0    # counts the number of grades successfully passed to the second excel
-input_path  = 'grades_ma_2.xlsx'
-output_path = '2021-2022_ΙΟΥΝΙΟΣ_NCO-02-01_ΜΑΘΗΜΑΤΙΚΗ ΑΝΑΛΥΣΗ ΙΙ_.xlsx'
+input_path  = 'A.xlsx'
+output_path = 'B_.xlsx'
 
 A1 = []
 A = []
