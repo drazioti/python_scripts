@@ -2,9 +2,11 @@
 sumOfDiv(10**15)
 499961853010960
 
-For latge integers, > 10^16, we use trial division and appply a formula for the sum
+For large integers, > 10^16, we use trial division and app\ply a formula for the sum
 of divisors
 
+author  : K Draziotis
+License : PDDL
 '''
 
 def trial_division(n):
