@@ -46,7 +46,7 @@ def miller_rabin(n,k):
             else:
                 isint = 1
                 s = i - 1
-                return s,(n-1)/2**s
+                return s,(n-1)//2**s
 
     i = 1
     j = 0
