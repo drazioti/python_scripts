@@ -6,6 +6,8 @@ We need gmpy2 library. Tested in python 2.
 
 >>>miller_rabin(2**1024-1,8)
 >>>'composite'
+>>>miller_rabin(2**2048+981,3)
+>>>'n is strong probable prime'
 
 #*****************************************************************************
 #       Copyright (C) K.Draziotis <drazioti@gmail.com>,
@@ -16,9 +18,6 @@ We need gmpy2 library. Tested in python 2.
 #                  http://www.gnu.org/licenses/
 #*****************************************************************************
 '''
-
-
-
 def miller_rabin(n,k):
     
     import random
@@ -35,12 +34,7 @@ def miller_rabin(n,k):
         isint = 0
         while isint == 0:
             
-            isint = gmpy2.powmod(n-1,1,2**i)
-            #print isint
-            #isint = gmpy2.floor( (n-1)/(2.**i)) - gmpy2.ceil( (n-1)/(2.**i))
-            # sos : the variable isint does not work for large n, say 2048 bits
-            # TODO :  fix it
-            
+            isint = gmpy2.powmod(n-1,1,2**i)            
             if isint == 0: # i.e. if n/2^i is integer, continue
                 i = i + 1
             else:
