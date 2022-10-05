@@ -143,9 +143,11 @@ origin	https://github.com/drazioti/repo_name.git (push)
 upstream	https://github.com/ORIGINAL_OWNER/repo_name.git (fetch)
 upstream	https://github.com/ORIGINAL_OWNER/repo_name.git (push)
 
-To sync with you github repo give add/commit/push
+You may now clone your fork to a local directory of your PC.
+To sync your local repo (i.e. this in your PC) with your github repo (i.e. your fork) give $git pull, and to add in your fork, give 
+add/commit/push as usual. When you are ready, make a pull request from the github site to the upstream.
 
-to delete the upstream
+To delete the upstream
 
 $git remote rm upstream
 
