@@ -166,7 +166,7 @@ Usually <remote_name> is origin
 or delete a local branch
 $git branch -D <branch name>
 
-=== 4.If by a mistake you made $git pull === 
+=== 4.If by mistake you made $git pull === 
 
 Say you want to go back to the previous state, give
 $git revert HEAD #this will not rewrite history
@@ -372,7 +372,7 @@ $git push
 
 === 24. Remove a remote file that is in .gitignore
 
-say you want to remobe .ipynb_checkpoints/ from remote repo
+say you want to remove .ipynb_checkpoints/ from remote repo
  
 $git rm -r --cached .ipynb_checkpoints/
 $git rm -r --cached .ipynb_checkpoints/ [without git add]
