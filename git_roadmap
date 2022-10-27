@@ -201,6 +201,7 @@ and in parallel you make local changes to your files.
 === 6.If you want to change the commit message of a previous commit ===
 
 see https://help.github.com/en/github/committing-changes-to-your-project/changing-a-commit-message
+[first $git --amend and then $git push --force-with-lease origin EXAMPLE-BRANCH]
 
 === 7.Review a Pull request of the upstream repository ===
 
