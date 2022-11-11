@@ -121,6 +121,7 @@ Contents
 22. ssh and github
 23. If you get a message : this branch is 1 commit behind the upstream and has conflicts that must be resolved
 24. Remove a remote file that is in .gitignore
+25. Initialize a new branch
  
 === 1.Syncing your local fork with the main repo ===
 
@@ -379,4 +380,7 @@ $git rm -r --cached .ipynb_checkpoints/
 $git rm -r --cached .ipynb_checkpoints/ [without git add]
 $git push
 
+=== 25. Initialize a new branch
 
+$git checkout -b foo
+$git push --set-upstream origin foo
