@@ -1,3 +1,6 @@
+% written in bash
+% author : K.A.Draziotis
+% Licence : GPL
 #!/bin/sh
 number_of_modules=$(lsmod|wc -l)
 a=$(lsmod |awk '{print $1}'|awk 'NR>1')
