@@ -1,6 +1,8 @@
-% written in bash
-% author : K.A.Draziotis
-% Licence : GPL
+: << 'COMMENT'
+written in bash
+author : K.A.Draziotis
+Licence : GPL
+COMMENT
 #!/bin/sh
 number_of_modules=$(lsmod|wc -l)
 a=$(lsmod |awk '{print $1}'|awk 'NR>1')
